@@ -37,7 +37,7 @@ deploy:
     region: us-west-2	
     detect_encoding: true
     on: 
-      branch: api-forecasttrigger
+      branch: api-forecasttrigger-release
       
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -49,7 +49,7 @@ deploy:
     deployment_group: TeamAviatoApp
     region: us-west-2
     on:
-      branch: api-forecasttrigger
+      branch: api-forecasttrigger-release
       
 
 after_deploy:
