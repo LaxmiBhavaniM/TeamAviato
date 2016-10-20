@@ -1,7 +1,7 @@
 language: java
 branches:
   only:
-    - api-ingestor
+    - api-dataingestor-release
 jdk:
   - oraclejdk8
 sudo: false
