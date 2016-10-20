@@ -2,7 +2,7 @@
 language: java
 branches:
   only:
-    - api-registry
+    - api-registry-release
 jdk:
   - oraclejdk8
 sudo: false
@@ -27,7 +27,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-registry
+      branch: api-registry-release
       
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -40,5 +40,5 @@ deploy:
     region: us-west-2
     skip_cleanup: true
     on:
-      branch: api-registry
+      branch: api-registry-release
     
