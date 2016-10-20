@@ -25,7 +25,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-ingestor
+      branch: api-dataingestor-release
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -38,4 +38,4 @@ deploy:
     region: us-west-2
     skip_cleanup: true
     on:
-      branch: api-ingestor
+      branch: api-dataingestor-release
