@@ -36,7 +36,7 @@ deploy:
     region: us-west-2
     detect_encoding: true
     on: 
-      branch: api-stormclustering
+      branch: api-stormclustering-release
       
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -48,7 +48,7 @@ deploy:
     deployment_group: TeamAviatoApp
     region: us-west-2
     on:
-      branch: api-stormclustering
+      branch: api-stormclustering-release
       
 
 after_deploy:
