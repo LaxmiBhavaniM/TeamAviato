@@ -1,3 +1,5 @@
+Triggering an update via commit...
+
 Science Gateway Project (Fall 2016)
 
 Team Aviato -
