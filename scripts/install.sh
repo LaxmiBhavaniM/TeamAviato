@@ -1,4 +1,4 @@
-echo 'starting installation process' >> /var/log/sga-teamaviato-StormClustering-install.log
+echo 'starting installation process' >> /var/log/sga-teamaviato-ForecastTrigger-install.log
 #cd '/home/ec2-user/forecasttrigger'
 
 rm -r /home/ec2-user/forecastTrigger
@@ -7,16 +7,12 @@ cd /home/ec2-user/forecastTrigger/
 chmod 777 forecasttrigger
 cd forecasttrigger
 
-echo 'Activating virtualenv for Forecast Trigger Microservice' >> /var/log/sga-teamaviato-ForecastTrigger-install.log
-pip install virtualenv >> /var/log/sga-teamaviato-ForecastTrigger-install.log
-virtualenv env >> /var/log/sga-teamaviato-ForecastTrigger-install.log
-source env/bin/activate >> /var/log/sga-teamaviato-ForecastTrigger-install.log
-pip install Flask >> /var/log/sga-teamaviato-ForecastTrigger-install.log
-pip install nose >> /var/log/sga-teamaviato-ForecastTrigger-install.log
-pip install BeautifulSoup4 >> /var/log/sga-teamaviato-ForecastTrigger-install.log
-pip install Flask-SQLAlchemy >> /var/log/sga-teamaviato-ForecastTrigger-install.log
-pip install ConfigParser
-pip install requests
+setup bridge network
+docker network ls | grep 'mynet123'
+if [ $? ne 0 ]; then
+  docker network create --subnet=172.18.0.0/16 mynet123
+fi
 
-echo 'Running Flask Server for forecast_trigger' >> /var/log/sga-teamaviato-ForecastTrigger-install.log
-nohup python forecast_trigger.py > /dev/null 2>&1 &
+docker build -t ftrigger_img .
+#docker run -d -p 32000:32000 --name api-ftrigger ftrigger_img >> sga-teamaviato-ForecastTrigger-docker-server.log 2>&1 &
+docker run -d --net mynet123 --ip 172.18.0.33 -p 32000:32000 --name api-ftrigger ftrigger_img >> sga-teamaviato-ForecastTrigger-docker-server.log 2>&1 &

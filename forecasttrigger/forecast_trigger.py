@@ -8,6 +8,10 @@ from flask import request
 import random
 app = Flask(__name__)
 
+@app.route('/')
+def test():
+    return "Test service"
+
 @app.route('/forecasttrigger/v1/service/trigger',methods=['POST'])
 def trigger_forecast():
     request_data = request.get_json()
