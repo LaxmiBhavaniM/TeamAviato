@@ -4,9 +4,20 @@ branches:
     - api-dataingestor-release
 jdk:
   - oraclejdk8
-sudo: false
-install: true
-script: cd "api-ingestor" && mvn clean install -DskipTests=true
+
+sudo: required
+
+services:
+  - docker
+
+install:
+  - cd "api-ingestor" && mvn clean install -DskipTests=true
+  - docker build -t tilaks/dataingestor .
+  - docker ps -a
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push tilaks/dataingestor
+
+script: mvn clean install -DskipTests=true
 
 before_deploy:
   - cd ..
