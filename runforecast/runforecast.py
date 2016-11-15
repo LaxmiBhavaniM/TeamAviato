@@ -8,6 +8,10 @@ import requests
 import random
 app = Flask(__name__)
 
+@app.route('/')
+def test():
+    return "Test service"
+
 @app.route('/runforecast/v1/service',methods=['POST'])
 def generatecluster():
     request_data = request.get_json()
