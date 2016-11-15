@@ -3,6 +3,7 @@ package org.aviato.registry.resource;
 import java.sql.Connection;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -14,9 +15,15 @@ import org.aviato.registry.POJO.RegistryPOJO;
 import org.aviato.registry.service.RegistryServices;
 import org.json.JSONArray;
 
-
 @Path("/service")
 public class RegistryResource {	
+	
+	@GET
+	@Path("/get")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getIt() {
+	    return "Got it!";
+	}	
 	
 	RegistryServices registryServices = new RegistryServices();	
 	

@@ -7,12 +7,12 @@
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>org.aviato.registry</param-value>
+            <param-value>org.aviato.registry.resource</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>Jersey Web Application</servlet-name>
-        <url-pattern>/db/*</url-pattern>
+        <url-pattern>/v1/*</url-pattern>
     </servlet-mapping>
 </web-app>
