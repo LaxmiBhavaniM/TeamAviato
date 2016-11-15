@@ -7,16 +7,13 @@ cd /home/ec2-user/stormDetector/
 chmod 777 stormdetection
 cd stormdetection
 
-echo 'Activating virtualenv for StormDetector Microservice' >> /var/log/sga-teamaviato-StormDetector-install.log
-pip install --upgrade pip
-pip install virtualenv >> /var/log/sga-teamaviato-StormDetector-install.log
-virtualenv env >> /var/log/sga-teamaviato-StormDetector-install.log
-source env/bin/activate >> /var/log/sga-teamaviato-StormDetector-install.log
-pip install Flask >> /var/log/sga-teamaviato-StormDetector-install.log
-pip install nose >> /var/log/sga-teamaviato-StormDetector-install.log
-pip install BeautifulSoup4 >> /var/log/sga-teamaviato-StormDetector-install.log
-pip install Flask-SQLAlchemy >> /var/log/sga-teamaviato-StormDetector-install.log
-pip install ConfigParser
-pip install requests
+setup bridge network
+docker network ls | grep 'mynet123'
+if [ $? ne 0 ]; then
+  docker network create --subnet=172.18.0.0/16 mynet123
+fi
 
-nohup python stormdetector.py >> stormdetector.log 2>&1 &
+docker build -t sdetect_img .
+docker run -d --net mynet123 --ip 172.18.0.31 -p 8000:8000 --name api-sdetect sdetect_img >> sga-teamaviato-StormDetector-docker-server.log 2>&1 &
+
+

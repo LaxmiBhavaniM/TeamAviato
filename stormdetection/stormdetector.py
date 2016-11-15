@@ -8,6 +8,10 @@ from flask import request
 
 app = Flask(__name__)
 
+@app.route('/')
+def test():
+    return "Test service"
+
 @app.route('/stormdetector/v1/service', methods=['POST'])
 def sendkml():
     data=request.get_json()
