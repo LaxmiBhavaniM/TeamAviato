@@ -5,8 +5,17 @@ from flask import Response
 from flask import json
 from flask import request
 import requests
+from logging import FileHandler, WARNING
 
 app = Flask(__name__)
+if not app.debug:
+    file_handler = FileHandler('errorlog.txt')
+    file_handler.setLevel(WARNING)
+    app.logger.addHandler(file_handler)
+
+@app.route('/')
+def test():
+    return "Test service"
 
 @app.route('/stormclustering/v1/service/kml', methods=['POST'])
 def generatecluster():

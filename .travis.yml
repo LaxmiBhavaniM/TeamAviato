@@ -18,6 +18,8 @@ before_script:
 
 script: nosetests
 
+services:
+  - docker
 
 before_deploy:
   - cd ..

@@ -7,15 +7,11 @@ cd /home/ec2-user/stormClustering/
 chmod 777 stormclustering
 cd stormclustering
 
-echo 'Activating virtualenv for StormClustering Microservice' >> /var/log/sga-teamaviato-StormClustering-install.log
-pip install virtualenv >> /var/log/sga-teamaviato-StormClustering-install.log
-virtualenv env >> /var/log/sga-teamaviato-StormClustering-install.log
-source env/bin/activate >> /var/log/sga-teamaviato-StormClustering-install.log
-pip install Flask >> /var/log/sga-teamaviato-StormClustering-install.log
-pip install nose >> /var/log/sga-teamaviato-StormClustering-install.log
-pip install BeautifulSoup4 >> /var/log/sga-teamaviato-StormClustering-install.log
-pip install Flask-SQLAlchemy >> /var/log/sga-teamaviato-StormClustering-install.log
-pip install ConfigParser
-pip install requests
+setup bridge network
+docker network ls | grep 'mynet123'
+if [ $? ne 0 ]; then
+  docker network create --subnet=172.18.0.0/16 mynet123
+fi
 
-nohup python stormclustering.py > /dev/null 2>&1 &
+docker build -t scluster_img .
+docker run -d --net mynet123 --ip 172.18.0.32 -p 31000:31000 --name api-sclustering scluster_img >> sga-teamaviato-StormClustering-docker-server.log 2>&1 &
