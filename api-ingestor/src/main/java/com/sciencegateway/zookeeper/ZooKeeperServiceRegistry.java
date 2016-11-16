@@ -55,7 +55,7 @@ public class ZooKeeperServiceRegistry implements ServiceRegistry
     {
         try 
         {
-                curatorFramework.delete().forPath(uri);
+        	curatorFramework.delete().forPath(uri);
         } 
         catch (Exception ex) 
         {
@@ -70,10 +70,8 @@ public class ZooKeeperServiceRegistry implements ServiceRegistry
     {
         try 
         {
-            String znode = "/services/" + name;
-
-            List<String> uris = curatorFramework.getChildren().forPath(znode);
-            return new String(curatorFramework.getData().forPath(ZKPaths.makePath(znode, uris.get(0))));
+            List<String> uris = curatorFramework.getChildren().forPath(name);
+            return new String(curatorFramework.getData().forPath(ZKPaths.makePath(name, uris.get(0))));
         } 
         catch (Exception ex) 
         {
