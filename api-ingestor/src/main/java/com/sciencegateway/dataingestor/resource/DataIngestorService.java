@@ -1,6 +1,6 @@
 package com.sciencegateway.dataingestor.resource;
 
-public class Service 
+public class DataIngestorService 
 {
 
 	public static int index;
@@ -12,7 +12,7 @@ public class Service
 
 	public static void setIndex(int index) 
 	{
-		Service.index = index;
+		DataIngestorService.index = index;
 	}
 	
 }
