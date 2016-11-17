@@ -29,8 +29,8 @@ if [ "$?" -ne 0 ]; then
 	mvn --version
 fi
 
-install_dir = "/usr/local"
-dir = "/usr/local/zookeeper-3.4.9"
+install_dir="/usr/local"
+dir="/usr/local/zookeeper-3.4.9"
 if [ ! -d "$dir" ] ; then
 	cd "$install_dir"
 	wget http://www-us.apache.org/dist/zookeeper/stable/zookeeper-3.4.9.tar.gz
@@ -38,8 +38,8 @@ if [ ! -d "$dir" ] ; then
 	rm zookeeper-3.4.9.tar.gz 
 	cd zookeeper-3.4.9/conf
 	sudo mv zoo_sample.cfg zoo.cfg
-	oldString = "dataDir=/temp/zookeeper"
-	newString = "dataDir=/var/lib/zookeeper"
+	oldString="dataDir=/temp/zookeeper"
+	newString="dataDir=/var/lib/zookeeper"
 	sed -i "s/$oldString/$newString/g" zoo.cfg
 	cd ..
 fi
