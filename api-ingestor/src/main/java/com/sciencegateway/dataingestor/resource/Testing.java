@@ -41,7 +41,7 @@ public class Testing
 		ClientConfig clientConfig = new ClientConfig();
 		Client client = ClientBuilder.newClient(clientConfig);
 		clientR.property(ClientProperties.CONNECT_TIMEOUT, 5000);
-		WebTarget target = client.target("http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:9000/dataingestor/webapi/service/url");
+		WebTarget target = client.target(url);
 		return target.request().post(Entity.entity(jsonObject.toString(), "application/json"),Response.class);
 	}
 	
