@@ -38,6 +38,7 @@ def sendkml():
         print("Couldn't connect to registry service")
     #---------------------------------------------------------
 
+    '''
     #*********************************************************
     #connect to storm clustering
     config = ConfigParser()
@@ -51,10 +52,11 @@ def sendkml():
     headers2 = {'Content-type': 'application/json'}
     r2 = requests.post(url2, data=json.dumps(data2,ensure_ascii=False), headers=headers2)
     #*********************************************************
-
-    #return r1
-    print(r2.text)
-    return r2.text
+    '''
+    data2 = {'userName': userName, 'requestId': requestId, 'data': kmldata}
+    return json.dumps(data2,ensure_ascii=False)
+    #print(r2.text)
+    #return r2.text
     #return Response(kmldata, mimetype='text/xml')
 
 def getkmlfile(yy,mm,dd,station,filename):
