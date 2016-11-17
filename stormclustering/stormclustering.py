@@ -46,6 +46,7 @@ def generatecluster():
         print("Couldn't connect to registry service.")
     # ---------------------------------------------------------
 
+    '''
     # *********************************************************
     # connect to forecast trigger
     config = ConfigParser()
@@ -59,8 +60,10 @@ def generatecluster():
     headers2 = {'Content-type': 'application/json'}
     r2 = requests.post(url2, data=json.dumps(data2, ensure_ascii=False), headers=headers2)
     # *********************************************************
+    '''
+    data2 = {'userName': userName, 'requestId': requestId, 'data': cluster}
 
-    return r2.text
+    return json.dumps(data2, ensure_ascii=False)
     #return json.dumps({'sample':12553})
 
 
