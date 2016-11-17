@@ -28,7 +28,7 @@ public class Testing
 		ClientConfig clientConfigR = new ClientConfig();
 		Client clientR = ClientBuilder.newClient(clientConfigR);
 		clientR.property(ClientProperties.CONNECT_TIMEOUT, 5000);
-		WebTarget targetR = clientR.target("http://localhost:8080/dataingestor/webapi/ingestor/delegate");
+		WebTarget targetR = clientR.target("http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:9000/dataingestor/webapi/ingestor/delegate");
 		String url = targetR.request().get(String.class);
 		System.out.println(url);
 		
@@ -41,7 +41,7 @@ public class Testing
 		ClientConfig clientConfig = new ClientConfig();
 		Client client = ClientBuilder.newClient(clientConfig);
 		clientR.property(ClientProperties.CONNECT_TIMEOUT, 5000);
-		WebTarget target = client.target("http://localhost:8080/dataingestor/webapi/service/url");
+		WebTarget target = client.target("http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:9000/dataingestor/webapi/service/url");
 		return target.request().post(Entity.entity(jsonObject.toString(), "application/json"),Response.class);
 	}
 	

@@ -31,17 +31,17 @@ public class DataIngestorInit implements ServletContextListener
     {
         this.context = event.getServletContext();
         logger.info("Registering Service...");
-    	String serviceURI = "http://localhost:8080/dataingestor/webapi/service/url";
+    	String serviceURI = "http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:9000/dataingestor/webapi/service/url";
     	String serviceName = "dataIngestor";
-    	int port = 8080;
+    	int port = 9000;
     	
-    	CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("localhost:2181", new RetryNTimes(5, 1000));
+    	CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("ec2-35-160-243-251.us-west-2.compute.amazonaws.com:2181", new RetryNTimes(5, 1000));
         curatorFramework.start();
         
         try 
         {            
             @SuppressWarnings("rawtypes")
-			ServiceInstance serviceInstance = ServiceInstance.builder().uriSpec(new UriSpec(serviceURI)).address("localhost").port(port)
+			ServiceInstance serviceInstance = ServiceInstance.builder().uriSpec(new UriSpec(serviceURI)).address("ec2-35-160-243-251.us-west-2.compute.amazonaws.com").port(port)
 					.name(serviceName).build();
             ServiceDiscoveryBuilder.builder(Void.class).basePath("weather-predictor").client(curatorFramework)
 			.thisInstance(serviceInstance).build().start();

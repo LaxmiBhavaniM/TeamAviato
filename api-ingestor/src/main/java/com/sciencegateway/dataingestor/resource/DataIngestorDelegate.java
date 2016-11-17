@@ -39,7 +39,7 @@ public class DataIngestorDelegate
 	public String delegate() 
 	{
 		logger.info("Inside Delegator...");
-		CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("localhost:2181", new RetryNTimes(5, 1000));
+		CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("ec2-35-160-243-251.us-west-2.compute.amazonaws.com:2181", new RetryNTimes(5, 1000));
 		curatorFramework.start();
 		ServiceDiscovery<Void> serviceDiscovery = ServiceDiscoveryBuilder.builder(Void.class).basePath("weather-predictor").client(curatorFramework).build();
 		
