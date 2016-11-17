@@ -29,6 +29,20 @@ if [ "$?" -ne 0 ]; then
 	mvn --version
 fi
 
+echo 'check if zookeeper is installed'
+ls zookeeper-3.4.6/bin/zkServer.sh
+if [ "$?" -ne 0 ]; then
+	echo 'Installing Zookeeper...'
+	sudo wget http://mirror.nus.edu.sg/apache/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
+	sudo tar -zxvf  zookeeper-3.4.6.tar.gz
+	cd   zookeeper-3.4.6/conf
+	sudo mv zoo_sample.cfg zoo.cfg
+	cd ..
+	sudo bin/zkServer.sh start
+	sudo netstat -anplt | grep 2181
+	ls zookeeper-3.4.6/bin/zkServer.sh
+fi
+
 sudo yum install -y docker-io
 sudo service docker start
 
