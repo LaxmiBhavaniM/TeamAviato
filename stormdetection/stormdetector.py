@@ -6,6 +6,7 @@ from flask import Response
 from flask import json
 from flask import request
 
+#start service
 app = Flask(__name__)
 
 @app.route('/')
