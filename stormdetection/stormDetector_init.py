@@ -16,7 +16,8 @@ from kazoo.exceptions import (
     WriterNotClosedException,
 )
 
-logging.basicConfig()
+logging.basicConfig(filename='zkregistry.log',level=logging.DEBUG,format="%(asctime)s - %(name)s - %(message)s", datefmt="%H:%M:%S", filemode='w')
+
 zk = KazooClient(hosts='ec2-35-160-243-251.us-west-2.compute.amazonaws.com:2181')
 #zk = KazooClient(hosts='localhost:2181')
 
@@ -27,16 +28,23 @@ ipaddress = "localhost"
 serviceURI = "/stormdetector/v1/service"
 port = 8000
 path = "http://"+ipaddress+":"+str(port)+":"+serviceName
+
 try:    #create base
     zk.create('/weather-predictor')
 except Exception as e1:
     print("Error while creating Weather-predictor znode",e1)
-    pass
-try:    #create base
+    logging.error("Error while creating Weather-predictor znode %s" % str(e1))
+else:
+    logging.debug("/weather-predictor znode created")
+
+try:    #create service znode
     zk.create('/weather-predictor/stormDetector')
-except Exception as e1:
-    print("Error while creating /weather-predictor/stormDetector znode",e1)
-    pass
+except Exception as e2:
+    print("Error while creating /weather-predictor/stormDetector znode",e2)
+    logging.error("Error while creating /weather-predictor/stormDetector znode %s" % str(e2))
+else:
+    logging.debug("/weather-predictor/stormDetector znode created")
+
 zk.ensure_path("/weather-predictor/stormDetector")
 print(zk.client_id)
 
@@ -52,8 +60,11 @@ try:
                           }}, ensure_ascii=True).encode(),
               ephemeral=True)
 
-except Exception as e2:
-    print("Error while creating weather-predictor/stormDetector znode",e2)
+except Exception as e3:
+    print("Error while creating weather-predictor/stormDetector znode",e3)
+    logging.error("Error while creating /weather-predictor/stormDetector child znode %s" % str(e3))
+else:
+    logging.debug("/weather-predictor/stormDetector child znode created %s" % uniqueid)
 #******************REGISTERED************
 
 while True:
