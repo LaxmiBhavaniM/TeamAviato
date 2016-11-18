@@ -1,6 +1,9 @@
 package com.sciencegateway.dataingestor.resource;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -38,8 +41,23 @@ public class DataIngestorDelegate
 	@Produces(MediaType.TEXT_PLAIN)
 	public String delegate() 
 	{
+		String ip = null;
+    	try
+    	{
+	    	URL whatismyip = new URL("http://checkip.amazonaws.com");
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+							whatismyip.openStream()));
+	
+			ip = in.readLine(); //you get the IP as a String
+			System.out.println(ip);
+    	}
+    	catch (Exception exception)
+    	{
+    		exception.printStackTrace();
+    	}
+		
 		logger.info("Inside Delegator...");
-		CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("52.15.57.97:2181", new RetryNTimes(5, 1000));
+		CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient(ip+":2181", new RetryNTimes(5, 1000));
 		curatorFramework.start();
 		ServiceDiscovery<Void> serviceDiscovery = ServiceDiscoveryBuilder.builder(Void.class).basePath("weather-predictor").client(curatorFramework).build();
 		
