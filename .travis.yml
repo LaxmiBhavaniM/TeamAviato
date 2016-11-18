@@ -20,9 +20,9 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket2
+    bucket: teamaviatobucket-ohio
     local_dir: registry_upload
-    region: us-west-2
+    region: us-east-2
     skip_cleanup: true
     acl: public_read
     detect_encoding: true
@@ -32,12 +32,12 @@ deploy:
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket2
+    bucket: teamaviatobucket-ohio
     key: SGA_Aviato_Registry.zip
     bundle_type: zip
     application: TeamAviatoApp
     deployment_group: TeamAviatoApp
-    region: us-west-2
+    region: us-east-2
     skip_cleanup: true
     on:
       branch: api-registry
