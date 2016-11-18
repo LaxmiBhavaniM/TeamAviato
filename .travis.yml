@@ -60,6 +60,7 @@ deploy:
     application: TeamAviatoApp
     deployment_group: TeamAviatoApp
     region: us-west-2
+    skip_cleanup: true
     on:
       branch: api-stormdetector
 
@@ -84,6 +85,7 @@ deploy:
     application: TeamAviatoApp
     deployment_group: TeamAviatoApp
     region: us-east-2
+    skip_cleanup: true
     on:
       branch: api-stormdetector
     
