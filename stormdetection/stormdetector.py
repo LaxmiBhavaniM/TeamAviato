@@ -12,6 +12,7 @@ from datetime import datetime
 from kazoo.client import KazooClient
 import logging
 import uuid
+import urllib.request
 from kazoo.exceptions import (
     AuthFailedError,
     ConfigurationError,
@@ -27,12 +28,16 @@ def register_to_zookeeper():
     logging.basicConfig(filename='zkregistry.log', level=logging.DEBUG, format="%(asctime)s - %(name)s - %(message)s",
                         datefmt="%H:%M:%S", filemode='w')
 
-    zk = KazooClient(hosts='52.15.57.97:2181')
+    host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
+    zport=2181
+    zurl=host+":"+str(zport)
+    zk = KazooClient(hosts=zurl)
     # zk = KazooClient(hosts='localhost:2181')
     zk.start()
+
     # ********** register service with zookeeper *********
     serviceName = "stormDetector"
-    ipaddress = "ec2-35-164-24-104.us-west-2.compute.amazonaws.com"
+    ipaddress = host
     serviceURI = "/stormdetector/v1/service"
     port = 8000
     path = "http://" + ipaddress + ":" + str(port) + ":" + serviceName
