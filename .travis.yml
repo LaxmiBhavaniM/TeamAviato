@@ -14,6 +14,7 @@ before_script:
   - pip install httplib2
   - pip install nose
   - pip install Flask-SQLAlchemy
+  - pip install -r stormdetection/requirements.txt
 
 script: nosetests
 
