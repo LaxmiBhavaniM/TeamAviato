@@ -19,8 +19,10 @@ install:
 
 script: mvn clean install -DskipTests=true
 
-before_deploy:
+after-success:
   - cd ..
+
+before_deploy:
   - zip -r SGA_Aviato_DataIngestor.zip api-ingestor scripts appspec.yml || true
   - mkdir -p "dpl_cd_upload"
   - mv SGA_Aviato_DataIngestor.zip dpl_cd_upload/SGA_Aviato_DataIngestor.zip || true
