@@ -28,7 +28,7 @@ def register_to_zookeeper():
     logging.basicConfig(filename='zkregistry.log', level=logging.DEBUG, format="%(asctime)s - %(name)s - %(message)s",
                         datefmt="%H:%M:%S", filemode='w')
 
-    zk = KazooClient(hosts='localhost:2181')
+    zk = KazooClient(hosts='52.15.57.97:2181')
     # zk = KazooClient(hosts='localhost:2181')
     zk.start()
     # ********** register service with zookeeper *********
