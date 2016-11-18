@@ -4,5 +4,5 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 ENTRYPOINT ["python"]
-CMD ["stormdetector.py","stormDetector_init.py"]
+CMD ["dummy.py","stormdetector.py"]
 
