@@ -1,6 +1,7 @@
 package com.zookeeper.delegate.detector;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -17,6 +18,8 @@ import org.apache.curator.x.discovery.ServiceInstance;
 import org.apache.curator.x.discovery.ServiceProvider;
 import org.apache.curator.x.discovery.UriSpec;
 import org.apache.log4j.Logger;
+
+import com.zookeeper.delegate.ip.GetIP;
 
 @Path("/detector")
 public class DelegateStormDetector 
@@ -36,10 +39,14 @@ public class DelegateStormDetector
 	@GET
 	@Path("/delegate")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String delegate() 
+	public String delegate() throws UnknownHostException, IOException 
 	{
 		logger.info("Inside Delegator...");
-		CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("52.15.57.97:2181", new RetryNTimes(5, 1000));
+		
+		String ip = GetIP.getValidIP();
+		logger.info("IP: " + ip);
+		
+		CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient(ip+":2181", new RetryNTimes(5, 1000));
 		curatorFramework.start();
 		ServiceDiscovery<Void> serviceDiscovery = ServiceDiscoveryBuilder.builder(Void.class).basePath("weather-predictor").client(curatorFramework).build();
 		
