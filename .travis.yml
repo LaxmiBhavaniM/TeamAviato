@@ -5,15 +5,13 @@ python:
 # command to install dependencies
 before_install:
   # Install ZooKeeper
-  - "sudo apt-get remove zookeeper"
-  - "sudo apt-get install zookeeper"
-  - "sudo apt-get install zookeeper-server"  # Install ZooKeeper
+  - "sudo apt-get install zookeeperd"
 
 install: "pip install -r stormdetection/requirements.txt"
 
 before_script:
-  - "sudo service zookeeper-server init"
-  - "sudo service zookeeper-server start"
+  - "sudo service zookeeper init"
+  - "sudo service zookeeper start"
 
 before_script:
   - pip install virtualenv
@@ -29,7 +27,7 @@ before_script:
 script: nosetests
 
 after_script:
-  - "sudo service zookeeper-server stop"
+  - "sudo service zookeeper stop"
 
 services:
   - docker
