@@ -5,6 +5,7 @@ python:
 # command to install dependencies
 before_install:
   # Install ZooKeeper
+  - "sudo apt-get remove zookeeper"
   - "sudo apt-get install zookeeper"
   - "sudo apt-get install zookeeper-server"  # Install ZooKeeper
 
