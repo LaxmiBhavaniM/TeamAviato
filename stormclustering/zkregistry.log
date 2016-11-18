@@ -1,0 +1,15 @@
+21:27:26 - kazoo.client - Connecting to localhost:2181
+21:27:26 - kazoo.client - Sending request(xid=None): Connect(protocol_version=0, last_zxid_seen=0, time_out=10000, session_id=0, passwd=b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', read_only=None)
+21:27:26 - kazoo.client - Zookeeper connection established, state: CONNECTED
+21:27:26 - kazoo.client - Sending request(xid=1): Create(path='/weather-predictor', data=b'', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=0)
+21:27:26 - kazoo.client - Received error(xid=1) NodeExistsError((), {})
+21:27:26 - root - Error while creating Weather-predictor znode ((), {})
+21:27:26 - kazoo.client - Sending request(xid=2): Create(path='/weather-predictor/stormClustering', data=b'', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=0)
+21:27:26 - kazoo.client - Received error(xid=2) NodeExistsError((), {})
+21:27:26 - root - Error while creating /weather-predictor/stormClustering znode ((), {})
+21:27:26 - kazoo.client - Sending request(xid=3): Exists(path='/weather-predictor/stormClustering', watcher=None)
+21:27:26 - kazoo.client - Received response(xid=3): ZnodeStat(czxid=172, mzxid=172, ctime=1479435176344, mtime=1479435176344, version=0, cversion=2, aversion=0, ephemeralOwner=0, dataLength=0, numChildren=0, pzxid=174)
+21:27:26 - kazoo.client - Sending request(xid=4): Create(path='/weather-predictor/stormClustering/65be309e-c9b7-4311-bcb1-ed2c43c32709', data=b'{"name": "stormClustering", "sslPort": null, "id": "65be309e-c9b7-4311-bcb1-ed2c43c32709", "uriSpec": {"parts": [{"variable": false, "value": "http://ec2-35-164-24-104.us-west-2.compute.amazonaws.com:31000:stormClustering"}]}, "port": 31000, "serviceType": "DYNAMIC", "registrationTimeUTC": 1479436046.298236, "address": "ec2-35-164-24-104.us-west-2.compute.amazonaws.com", "payload": null}', acl=[ACL(perms=31, acl_list=['ALL'], id=Id(scheme='world', id='anyone'))], flags=1)
+21:27:26 - kazoo.client - Received response(xid=4): '/weather-predictor/stormClustering/65be309e-c9b7-4311-bcb1-ed2c43c32709'
+21:27:26 - root - /weather-predictor/stormClustering child znode created 65be309e-c9b7-4311-bcb1-ed2c43c32709
+21:27:26 - werkzeug -  * Running on http://0.0.0.0:31000/ (Press CTRL+C to quit)
