@@ -1,5 +1,9 @@
 package com.sciencegateway.dataingestor.resource;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -29,19 +33,34 @@ public class DataIngestorInit implements ServletContextListener
     @Override
     public void contextInitialized(ServletContextEvent event) 
     {
+    	String ip = null;
+    	try
+    	{
+	    	URL whatismyip = new URL("http://checkip.amazonaws.com");
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+							whatismyip.openStream()));
+	
+			ip = in.readLine(); //you get the IP as a String
+			System.out.println(ip);
+    	}
+    	catch (Exception exception)
+    	{
+    		exception.printStackTrace();
+    	}
+    	
         this.context = event.getServletContext();
         logger.info("Registering Service...");
-    	String serviceURI = "http://52.15.57.97:9000/dataingestor/webapi/service/url";
+    	String serviceURI = "http://"+ip+":9000/dataingestor/webapi/service/url";
     	String serviceName = "dataIngestor";
     	int port = 9000;
     	
-    	CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("52.15.57.97:2181", new RetryNTimes(5, 1000));
+    	CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient(ip+":2181", new RetryNTimes(5, 1000));
         curatorFramework.start();
         
         try 
         {            
             @SuppressWarnings("rawtypes")
-			ServiceInstance serviceInstance = ServiceInstance.builder().uriSpec(new UriSpec(serviceURI)).address("52.15.57.97").port(port)
+			ServiceInstance serviceInstance = ServiceInstance.builder().uriSpec(new UriSpec(serviceURI)).address(ip).port(port)
 					.name(serviceName).build();
             ServiceDiscoveryBuilder.builder(Void.class).basePath("weather-predictor").client(curatorFramework)
 			.thisInstance(serviceInstance).build().start();
