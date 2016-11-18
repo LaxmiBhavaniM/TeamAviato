@@ -30,7 +30,7 @@ def register_to_zookeeper():
     try:
         host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
     except Exception as e:
-        print("Error while connecting to aws get instance info",e)
+        print("Error while connecting to aws get instance info",type(e))
         host="localhost"
 
     zport=2181
@@ -49,16 +49,16 @@ def register_to_zookeeper():
     try:  # create base
         zk.create('/weather-predictor')
     except Exception as e1:
-        print("Error while creating Weather-predictor znode", e1)
-        logging.error("Error while creating Weather-predictor znode %s" % str(e1))
+        print("Error while creating Weather-predictor znode", type(e1))
+        logging.error("Error while creating Weather-predictor znode %s" % type(e1))
     else:
         logging.debug("/weather-predictor znode created")
 
     try:  # create service znode
         zk.create('/weather-predictor/stormDetector')
     except Exception as e2:
-        print("Error while creating /weather-predictor/stormDetector znode", e2)
-        logging.error("Error while creating /weather-predictor/stormDetector znode %s" % str(e2))
+        print("Error while creating /weather-predictor/stormDetector znode", type(e2))
+        logging.error("Error while creating /weather-predictor/stormDetector znode %s" % type(e2))
     else:
         logging.debug("/weather-predictor/stormDetector znode created")
 
@@ -78,8 +78,8 @@ def register_to_zookeeper():
                   ephemeral=True)
 
     except Exception as e3:
-        print("Error while creating weather-predictor/stormDetector znode", e3)
-        logging.error("Error while creating /weather-predictor/stormDetector child znode %s" % str(e3))
+        print("Error while creating weather-predictor/stormDetector znode", type(e3))
+        logging.error("Error while creating /weather-predictor/stormDetector child znode %s" % type(e3))
     else:
         logging.debug("/weather-predictor/stormDetector child znode created %s" % uniqueid)
         # ******************REGISTERED************
@@ -104,9 +104,15 @@ def sendkml():
     #---------------------------------------------------------
     #connect to registry
     try:
+        try:
+            host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
+        except Exception as e:
+            print("Error while connecting to aws get instance info", type(e))
+            host = "localhost"
+
         config = ConfigParser()
         config.read('config.ini')
-        host1 = config.get('registryConfig', 'ipaddress1')
+        host1 = host
         port1 = config.get('registryConfig', 'port1')
 
         url1="http://"+host1+":"+port1+"/registry/v1/service/log"
