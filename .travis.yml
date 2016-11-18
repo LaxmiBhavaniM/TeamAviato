@@ -73,7 +73,7 @@ deploy:
     key: SGA_Aviato_DataIngestor.zip
     bundle_type: zip
     application: TeamAviatoApp-ohio
-    deployment_group: TeamAviatoApp
+    deployment_group: TeamAviatoApp-ohio
     region: us-east-2
     skip_cleanup: true
     on:
