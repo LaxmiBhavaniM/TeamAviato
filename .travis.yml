@@ -47,7 +47,7 @@ deploy:
     bucket: teamaviatobucket-ohio
     key: SGA_Aviato_DataIngestor.zip
     bundle_type: zip
-    application: TeamAviatoApp-Ohio
+    application: TeamAviatoApp-ohio
     deployment_group: TeamAviatoApp-Ohio1
     region: us-east-2
     skip_cleanup: true
@@ -74,7 +74,7 @@ deploy:
     bucket: teamaviatobucket-ohio
     key: SGA_Aviato_DataIngestor.zip
     bundle_type: zip
-    application: TeamAviatoApp-Ohio
+    application: TeamAviatoApp-ohio
     deployment_group: TeamAviatoApp-Ohio2
     region: us-east-2
     skip_cleanup: true
