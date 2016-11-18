@@ -27,8 +27,12 @@ from kazoo.exceptions import (
 def register_to_zookeeper():
     logging.basicConfig(filename='zkregistry.log', level=logging.DEBUG, format="%(asctime)s - %(name)s - %(message)s",
                         datefmt="%H:%M:%S", filemode='w')
+    try:
+        host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
+    except Exception as e:
+        print("Error while connecting to aws get instance info",e)
+        host="localhost"
 
-    host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
     zport=2181
     zurl=host+":"+str(zport)
     zk = KazooClient(hosts=zurl)
