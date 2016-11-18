@@ -40,14 +40,15 @@ deploy:
     on:
       branch: api-dataingestor
 
+deploy:
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
     bucket: teamaviatobucket-ohio
     key: SGA_Aviato_DataIngestor.zip
     bundle_type: zip
-    application: TeamAviatoApp
-    deployment_group: TeamAviatoApp
+    application: TeamAviatoApp-Ohio
+    deployment_group: TeamAviatoApp-Ohio1
     region: us-east-2
     skip_cleanup: true
     on:
@@ -66,14 +67,15 @@ deploy:
     on:
       branch: api-dataingestor
 
+deploy:
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
     bucket: teamaviatobucket-ohio
     key: SGA_Aviato_DataIngestor.zip
     bundle_type: zip
-    application: TeamAviatoApp-ohio
-    deployment_group: TeamAviatoApp-ohio
+    application: TeamAviatoApp-Ohio
+    deployment_group: TeamAviatoApp-Ohio2
     region: us-east-2
     skip_cleanup: true
     on:
@@ -92,6 +94,7 @@ deploy:
     on:
       branch: api-dataingestor
 
+deploy:
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
