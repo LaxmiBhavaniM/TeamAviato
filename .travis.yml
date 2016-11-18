@@ -51,18 +51,6 @@ deploy:
     on: 
       branch: api-stormdetector
 
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket-ohio
-    local_dir: stormDetection
-    region: us-east-2
-    skip_cleanup: true
-    acl: public_read
-    detect_encoding: true
-    on:
-      branch: api-stormdetector
-      
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
@@ -75,6 +63,18 @@ deploy:
     on:
       branch: api-stormdetector
 
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket-ohio
+    local_dir: stormDetection
+    region: us-east-2
+    skip_cleanup: true
+    acl: public_read
+    detect_encoding: true
+    on:
+      branch: api-stormdetector
+
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
@@ -84,7 +84,6 @@ deploy:
     application: TeamAviatoApp
     deployment_group: TeamAviatoApp
     region: us-east-2
-    skip_cleanup: true
     on:
       branch: api-stormdetector
     
