@@ -30,9 +30,52 @@ exports.postWeather = (req, res, next) => {
 
   var reqId = userRequest.requestId;
 
+  // Data Ingestor - http://52.15.57.97:7000/zookeeper-app/webapi/ingestor/delegate
+  // Storm Detector - http://52.15.57.97:7000/zookeeper-app/webapi/detector/delegate
+  // Storm Clustering - http://52.15.57.97:7000/zookeeper-app/webapi/clustering/delegate                        
+  // Trigger Forecast - http://52.15.57.97:7000/zookeeper-app/webapi/trigger/delegate
+  // Run Forecast - http://52.15.57.97:7000/zookeeper-app/webapi/forecast/delegate
+
+  var urlDataIngestor, urlStormDetector, urlStormClustering, urlTriggerForecast, urlRunForecast;
+  request({
+    url: 'http://52.15.57.97:9000/dataingestor/webapi/ingestor/delegate',
+    method: 'GET',
+  }, function(error, response, body){
+    urlDataIngestor = body;
+    console.log('Got back Data Ingestor URL: ' + urlDataIngestor);
+  });
+  request({
+    url: 'http://52.15.57.97:7000/zookeeper-app/webapi/detector/delegate',
+    method: 'GET',
+  }, function(error, response, body){
+    urlStormDetector = body;
+    console.log('Got back Storm Det URL: ' + urlStormDetector);
+  });
+  request({
+    url: 'http://52.15.57.97:7000/zookeeper-app/webapi/clustering/delegate',
+    method: 'GET',
+  }, function(error, response, body){
+    urlStormClustering = body;
+    console.log('Got back Storm CLustering URL: ' + urlStormClustering);
+  });
+  request({
+    url: 'http://52.15.57.97:7000/zookeeper-app/webapi/trigger/delegate',
+    method: 'GET',
+  }, function(error, response, body){
+    urlTriggerForecast = body;
+    console.log('Got back Trigger Forecast URL: ' + urlTriggerForecast);
+  });
+  request({
+    url: 'http://52.15.57.97:7000/zookeeper-app/webapi/forecast/delegate',
+    method: 'GET',
+  }, function(error, response, body){
+    urlRunForecast = body;
+    console.log('Got back Run Forecast URL: ' + urlRunForecast);
+  });
+  
   var requestSuccess = 0;
   request({ // Request to the Data Ingestor
-    url: 'http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:9000/dataingestor/webapi/service/url',
+    url: urlDataIngestor,
     method: 'POST',
     headers: { 'Content-Type': 'application/json'},
     json: userRequest
@@ -51,7 +94,7 @@ exports.postWeather = (req, res, next) => {
     	var diResponse = response.body;
 
       request({ // Request to the storm detector
-        url: 'http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:8000/stormdetector/v1/service',
+        url: urlStormDetector,
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         json: diResponse
@@ -68,7 +111,7 @@ exports.postWeather = (req, res, next) => {
           else if(responseDet.statusCode == 200){
             console.log('Storm detection was successful.');
             request({ // Request to the storm clustering
-              url: 'http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:31000/stormclustering/v1/service/kml',
+              url: urlStormClustering,
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               json: responseDet.body
@@ -84,7 +127,7 @@ exports.postWeather = (req, res, next) => {
                 }
                 else if(responseClust.statusCode == 200){
                   request({ // Request to the forecast trigger
-                    url: 'http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:32000/forecasttrigger/v1/service/trigger',
+                    url: urlTriggerForecast,
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     json: responseDet.body
@@ -103,7 +146,7 @@ exports.postWeather = (req, res, next) => {
 
                         if(bodyTrig.trigger_response == 'Yes'){
                             request({
-                                url: 'http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:8050/runforecast/v1/service',
+                                url: urlRunForecast,
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 json: diResponse
