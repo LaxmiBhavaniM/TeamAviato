@@ -13,6 +13,7 @@ from datetime import datetime
 from kazoo.client import KazooClient
 import logging
 import uuid
+import urllib.request
 from kazoo.exceptions import (
     AuthFailedError,
     ConfigurationError,
@@ -27,13 +28,21 @@ from kazoo.exceptions import (
 def register_to_zookeeper():
     logging.basicConfig(filename='zkregistry.log', level=logging.DEBUG, format="%(asctime)s - %(name)s - %(message)s",
                         datefmt="%H:%M:%S", filemode='w')
+    try:
+        host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
+    except Exception as e:
+        print("Error while connecting to aws get instance info",type(e))
+        host="localhost"
 
-    zk = KazooClient(hosts='52.15.57.97:2181')
+    zport = 2181
+    zurl = host + ":" + str(zport)
+    zk = KazooClient(hosts=zurl)
     # zk = KazooClient(hosts='localhost:2181')
     zk.start()
+
     # ********** register service with zookeeper *********
     serviceName = "stormClustering"
-    ipaddress = "ec2-35-164-24-104.us-west-2.compute.amazonaws.com"
+    ipaddress = host
     serviceURI = "/stormclustering/v1/service/kml"
     port = 31000
     path = "http://" + ipaddress + ":" + str(port) + ":" + serviceName
@@ -41,16 +50,16 @@ def register_to_zookeeper():
     try:  # create base
         zk.create('/weather-predictor')
     except Exception as e1:
-        print("Error while creating Weather-predictor znode", e1)
-        logging.error("Error while creating Weather-predictor znode %s" % str(e1))
+        print("Error while creating Weather-predictor znode", type(e1))
+        logging.error("Error while creating Weather-predictor znode %s" % type(e1))
     else:
         logging.debug("/weather-predictor znode created")
 
     try:  # create service znode
         zk.create('/weather-predictor/stormClustering')
     except Exception as e2:
-        print("Error while creating /weather-predictor/stormClustering znode", e2)
-        logging.error("Error while creating /weather-predictor/stormClustering znode %s" % str(e2))
+        print("Error while creating /weather-predictor/stormClustering znode", type(e2))
+        logging.error("Error while creating /weather-predictor/stormClustering znode %s" % type(e2))
     else:
         logging.debug("/weather-predictor/stormClustering znode created")
 
@@ -70,8 +79,8 @@ def register_to_zookeeper():
                   ephemeral=True)
 
     except Exception as e3:
-        print("Error while creating weather-predictor/stormClustering znode", e3)
-        logging.error("Error while creating /weather-predictor/stormClustering child znode %s" % str(e3))
+        print("Error while creating weather-predictor/stormClustering znode", type(e3))
+        logging.error("Error while creating /weather-predictor/stormClustering child znode %s" % type(e3))
     else:
         logging.debug("/weather-predictor/stormClustering child znode created %s" % uniqueid)
         # ******************REGISTERED************
@@ -102,9 +111,15 @@ def generatecluster():
     # ---------------------------------------------------------
     # connect to registry
     try:
+        try:
+            host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
+        except Exception as e:
+            print("Error while connecting to aws get instance info", type(e))
+            host = "localhost"
+
         config = ConfigParser()
         config.read('config.ini')
-        host1 = config.get('registryConfig', 'ipaddress1')
+        host1 = host
         port1 = config.get('registryConfig', 'port1')
 
         url1 = "http://" + host1 + ":" + port1 + "/registry/v1/service/log"
