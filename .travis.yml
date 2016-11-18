@@ -31,7 +31,7 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
     bucket: teamaviatobucket-ohio
     local_dir: dpl_cd_upload
-    region: us-west-2
+    region: us-east-2
     skip_cleanup: true
     acl: public_read
     detect_encoding: true
