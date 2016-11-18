@@ -3,7 +3,16 @@ language: python
 python:
   - "3.3"
 # command to install dependencies
+
+before_install:
+  # Install ZooKeeper
+  - "sudo apt-get install zookeeperd"
+
 install: "pip install -r runforecast/requirements.txt"
+
+before_script:
+  - "sudo service zookeeper init"
+  - "sudo service zookeeper start"
 
 before_script:
   - pip install virtualenv
@@ -17,6 +26,9 @@ before_script:
   - pip install kazoo
 
 script: nosetests
+
+after_script:
+  - "sudo service zookeeper stop"
 
 services:
   - docker
@@ -39,6 +51,18 @@ deploy:
     detect_encoding: true
     on: 
       branch: api-runforecast
+
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket-ohio
+    local_dir: runForecast
+    region: us-east-2
+    skip_cleanup: true
+    acl: public_read
+    detect_encoding: true
+    on:
+      branch: api-runforecast
       
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -52,6 +76,18 @@ deploy:
     on:
       branch: api-runforecast
       
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket-ohio
+    key: SGA_TeamAviato_RunForeCast.zip
+    bundle_type: zip
+    application: TeamAviatoApp
+    deployment_group: TeamAviatoApp
+    region: us-east-2
+    skip_cleanup: true
+    on:
+      branch: api-runforecast
 
 after_deploy:
   - echo "Performing after deploy procedures..."
