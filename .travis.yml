@@ -37,7 +37,6 @@ after-success:
   - cd ..
 
 before_deploy:
-  - cd ..
   - zip -r SGA_TeamAviato_StormClustering.zip stormclustering scripts appspec.yml || true
   - mkdir -p "stormClustering"
   - mv SGA_TeamAviato_StormClustering.zip stormClustering/SGA_TeamAviato_StormClustering.zip || true
