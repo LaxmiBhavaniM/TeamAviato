@@ -13,10 +13,10 @@ cd '/home/ec2-user/stormdetector-microservice/stormdetection'
 
 
 cd '/home/ec2-user/docker'
-docker login -e="laxmibh.malkareddy@gmail.com" -u="laxmibhavanim" -p="laxmalka"
-docker pull laxmibhavanim/stormdetector
-docker images | grep '<none>' | awk '{print $3}' | xargs --no-run-if-empty docker rmi -f
-docker run -d -p 8000:8000 --name api-sdetect $(docker images | grep -w "laxmibhavanim/stormdetector" | awk '{print $3}') >> /var/log/stormdetector.log 2>&1 &
+docker login -e="laxmibh.malkareddy@gmail.com" -u="laxmibhavanim" -p="laxmalka" >> /var/log/sdetector-docker-install.log
+docker pull laxmibhavanim/stormdetector >> /var/log/sdetector-docker-install.log
+docker images | grep '<none>' | awk '{print $3}' | xargs --no-run-if-empty docker rmi -f >> /var/log/sdetector-docker-install.log
+docker run -d -p 8000:8000 --name api-sdetect $(docker images | grep -w "laxmibhavanim/stormdetector" | awk '{print $3}') >> /var/log/sdetector-docker-install.log 2>&1 &
 
 
 

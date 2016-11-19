@@ -21,12 +21,14 @@ cd "$dir/bin"
 ./zkServer.sh stop
 ./zkServer.sh start
 
-sudo yum install -y docker-io
-sudo service docker start
+echo 'install docker-io' >> /var/log/sdetector-docker.log 2>&1
+sudo yum install -y docker-io >> /var/log/sdetector-docker.log 2>&1
+sudo service docker start >> /var/log/sdetector-docker.log 2>&1
 
 echo 'Removing existing docker instances' >> /var/log/sdetector-docker.log 2>&1
-docker ps -a | grep 'sdetect_img' | awk '{print $1}' | xargs --no-run-if-empty docker stop
-docker ps -a | grep 'sdetect_img' | awk '{print $1}' | xargs --no-run-if-empty docker rm
+docker ps -a | grep 'api-sdetect' | awk '{print $1}' | xargs --no-run-if-empty docker stop >> /var/log/sdetector-docker.log 2>&1
+docker ps -a | grep 'api-sdetect' | awk '{print $1}' | xargs --no-run-if-empty docker rm >> /var/log/sdetector-docker.log 2>&1
 
 #Remove existing images if any
-docker images | grep -w "laxmibhavanim/stormdetector" | awk '{print $3}' | xargs --no-run-if-empty docker rmi -f
+echo 'Removing existing docker images if any'>> /var/log/sdetector-docker.log 2>&1
+docker images | grep -w "laxmibhavanim/stormdetector" | awk '{print $3}' | xargs --no-run-if-empty docker rmi -f >> /var/log/sdetector-docker.log 2>&1
