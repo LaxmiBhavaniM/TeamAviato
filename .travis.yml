@@ -3,10 +3,6 @@ language: python
 python:
   - "3.3"
 # command to install dependencies
-before_install:
-  # Install ZooKeeper
-  - "sudo apt-get install zookeeperd"
-
 
 services:
   - docker
@@ -20,8 +16,11 @@ install:
   - docker push laxmibhavanim/stormdetector
 
 before_script:
+  - "sudo apt-get install zookeeperd"
   - "sudo service zookeeper init"
   - "sudo service zookeeper start"
+
+before_script:
   - pip install virtualenv
   - cd stormdetection
   - virtualenv env
