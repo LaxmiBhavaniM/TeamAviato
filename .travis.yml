@@ -82,8 +82,8 @@ deploy:
     bucket: teamaviatobucket-ohio
     key: SGA_TeamAviato_StormDetector.zip
     bundle_type: zip
-    application: TeamAviatoApp
-    deployment_group: TeamAviatoApp
+    application: TeamAviatoApp-ohio
+    deployment_group: TeamAviatoApp-ohio
     region: us-east-2
     skip_cleanup: true
     on:
