@@ -9,9 +9,10 @@ sudo: required
 install: true
 script: cd "registry" && mvn clean install -DskipTests=true
 
-
-before_deploy:
+after-success:
   - cd ..
+  
+before_deploy:
   - zip -r SGA_Aviato_Registry.zip registry scripts appspec.yml || true
   - mkdir -p "registry_upload"
   - mv SGA_Aviato_Registry.zip registry_upload/SGA_Aviato_Registry.zip || true
