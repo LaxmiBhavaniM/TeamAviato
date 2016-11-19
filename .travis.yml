@@ -17,11 +17,9 @@ install:
   - cd ..
 
 before_script:
-  - "sudo apt-get install zookeeperd"
-  - "sudo service zookeeper init"
-  - "sudo service zookeeper start"
-
-before_script:
+  - sudo apt-get install zookeeperd
+  - sudo service zookeeper init
+  - sudo service zookeeper start
   - pip install virtualenv
   - cd stormdetection
   - virtualenv env
@@ -35,7 +33,7 @@ before_script:
 script: nosetests
 
 after_script:
-  - "sudo service zookeeper stop"
+  - sudo service zookeeper stop
 
 
 after-success:
