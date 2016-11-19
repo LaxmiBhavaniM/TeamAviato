@@ -1,5 +1,6 @@
 echo 'starting installation process' >> /var/log/sga-teamaviato-StormDetection-install.log
 #cd '/home/ec2-user/stormclustering'
+sudo su
 
 rm -r /home/ec2-user/stormDetector
 mv /home/ec2-user/StormDetector  /home/ec2-user/stormDetector
