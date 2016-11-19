@@ -13,7 +13,7 @@ before_install:
   - "sudo apt-get install zookeeperd"
 
 # command to install dependencies
-install: "pip install -r stormclustering/requirements.txt"
+install: "pip install -r stormdetection/requirements.txt"
 
 before_script:
   - "sudo service zookeeper init"
