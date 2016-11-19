@@ -41,6 +41,9 @@ if [ ! -d "$dir" ] ; then
 	oldString="dataDir=/temp/zookeeper"
 	newString="dataDir=/var/lib/zookeeper"
 	sed -i "s/$oldString/$newString/g" zoo.cfg
+	echo "server.1=52.15.57.97:2888:3888" >> zoo.cfg
+	echo "server.2=35.164.24.104:2888:3888" >> zoo.cfg
+	echo "server.3=52.15.40.136:2888:3888" >> zoo.cfg
 	cd ..
 fi
 
