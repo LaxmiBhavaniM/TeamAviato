@@ -3,6 +3,8 @@ language: python
 python:
   - "3.3"
 
+sudo: required
+
 before_install:
   # Install ZooKeeper
   - "sudo apt-get install zookeeperd"
