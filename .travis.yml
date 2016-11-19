@@ -7,13 +7,21 @@ before_install:
   # Install ZooKeeper
   - "sudo apt-get install zookeeperd"
 
-install: "pip install -r stormdetection/requirements.txt"
+
+services:
+  - docker
+
+install: 
+  - pip install -r stormdetection/requirements.txt
+  - cd "stormdetection"
+  - docker build -t laxmibhavanim/stormdetector .
+  - docker ps -a
+  - docker login -e="$MY_DOCKER_EMAIL" -u="$MY_DOCKER_USERNAME" -p="MY_$DOCKER_PASSWORD"
+  - docker push laxmibhavanim/stormdetector
 
 before_script:
   - "sudo service zookeeper init"
   - "sudo service zookeeper start"
-
-before_script:
   - pip install virtualenv
   - cd stormdetection
   - virtualenv env
@@ -29,11 +37,11 @@ script: nosetests
 after_script:
   - "sudo service zookeeper stop"
 
-services:
-  - docker
+
+after-success:
+  - cd ..
 
 before_deploy:
-  - cd ..
   - zip -r SGA_TeamAviato_StormDetector.zip stormdetection scripts appspec.yml || true
   - mkdir -p "stormDetection"
   - mv SGA_TeamAviato_StormDetector.zip stormDetection/SGA_TeamAviato_StormDetector.zip || true
@@ -42,24 +50,24 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket2
+    bucket: teamaviatobucket-ohio
+    local_dir: stormDetection
+    region: us-east-2
     skip_cleanup: true
-    local-dir: stormDetection
     acl: public_read
-    region: us-west-2
     detect_encoding: true
-    on: 
+    on:
       branch: api-stormdetector
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket2
+    bucket: teamaviatobucket-ohio
     key: SGA_TeamAviato_StormDetector.zip
     bundle_type: zip
-    application: TeamAviatoApp
-    deployment_group: TeamAviatoApp
-    region: us-west-2
+    application: TeamAviatoApp-ohio
+    deployment_group: TeamAviatoApp-ohio
+    region: us-east-2
     skip_cleanup: true
     on:
       branch: api-stormdetector
@@ -82,9 +90,34 @@ deploy:
     bucket: teamaviatobucket-ohio
     key: SGA_TeamAviato_StormDetector.zip
     bundle_type: zip
-    application: TeamAviatoApp-ohio
-    deployment_group: TeamAviatoApp-ohio
+    application: TeamAviatoApp-ohio2
+    deployment_group: TeamAviatoApp-ohio2
     region: us-east-2
+    skip_cleanup: true
+    on:
+      branch: api-stormdetector
+
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket2
+    skip_cleanup: true
+    local-dir: stormDetection
+    acl: public_read
+    region: us-west-2
+    detect_encoding: true
+    on: 
+      branch: api-stormdetector
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket2
+    key: SGA_TeamAviato_StormDetector.zip
+    bundle_type: zip
+    application: TeamAviatoApp
+    deployment_group: TeamAviatoApp
+    region: us-west-2
     skip_cleanup: true
     on:
       branch: api-stormdetector

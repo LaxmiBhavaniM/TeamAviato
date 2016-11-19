@@ -1,19 +1,22 @@
 echo 'starting installation process' >> /var/log/sga-teamaviato-StormDetector-install.log
 #cd '/home/ec2-user/stormdetection'
 
-rm -r /home/ec2-user/stormDetector
-mv /home/ec2-user/StormDetector  /home/ec2-user/stormDetector
-cd /home/ec2-user/stormDetector/
-chmod 777 stormdetection
-cd stormdetection
+# copy artifacts to new dir
+mkdir '/home/ec2-user/stormdetector-microservice'
+cp -r /home/ec2-user/stormdetection/* /home/ec2-user/stormdetector-microservice
 
-setup bridge network
-docker network ls | grep 'mynet123'
-if [ $? ne 0 ]; then
-  docker network create --subnet=172.18.0.0/16 mynet123
-fi
+# delete revision
+rm -rf '/home/ec2-user/stormdetection'
 
-docker build -t sdetect_img .
-docker run -d --net mynet123 --ip 172.18.0.31 -p 8000:8000 --name api-sdetect sdetect_img >> sga-teamaviato-StormDetector-docker-server.log 2>&1 &
+echo 'Installing the Storm Detector API...'
+cd '/home/ec2-user/stormdetector-microservice/stormdetection'
+
+
+cd '/home/ec2-user/docker'
+docker login -e="laxmibh.malkareddy@gmail.com" -u="laxmibhavanim" -p="laxmalka"
+docker pull laxmibhavanim/stormdetector
+docker images | grep '<none>' | awk '{print $3}' | xargs --no-run-if-empty docker rmi -f
+docker run -d -p 8000:8000 --name api-sdetect $(docker images | grep -w "laxmibhavanim/stormdetector" | awk '{print $3}') >> /var/log/stormdetector.log 2>&1 &
+
 
 
