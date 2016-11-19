@@ -4,6 +4,7 @@ python:
   - "3.3"
 
 # command to install dependencies
+sudo: required
 
 before_install:
   # Install ZooKeeper
@@ -34,8 +35,10 @@ after_script:
 services:
   - docker
 
-before_deploy:
+after-success:
   - cd ..
+
+before_deploy:
   - zip -r SGA_TeamAviato_ForecastTrigger.zip forecasttrigger scripts appspec.yml || true
   - mkdir -p "forecastTrigger"
   - mv SGA_TeamAviato_ForecastTrigger.zip forecastTrigger/SGA_TeamAviato_ForecastTrigger.zip || true
@@ -52,18 +55,6 @@ deploy:
     detect_encoding: true
     on: 
       branch: api-forecasttrigger
-
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket-ohio
-    local_dir: forecastTrigger
-    region: us-east-2
-    skip_cleanup: true
-    acl: public_read
-    detect_encoding: true
-    on:
-      branch: api-forecasttrigger
       
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -74,19 +65,6 @@ deploy:
     application: TeamAviatoApp
     deployment_group: TeamAviatoApp
     region: us-west-2
-    on:
-      branch: api-forecasttrigger
-
-  - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket-ohio
-    key: SGA_TeamAviato_ForecastTrigger.zip
-    bundle_type: zip
-    application: TeamAviatoApp
-    deployment_group: TeamAviatoApp
-    region: us-east-2
-    skip_cleanup: true
     on:
       branch: api-forecasttrigger
       
