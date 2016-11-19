@@ -10,14 +10,15 @@ services:
   - docker
 
 before_install:
+  # Install ZooKeeper
   - "sudo apt-get install zookeeperd"
 
 # command to install dependencies
 install: "pip install -r stormdetection/requirements.txt"
 
 before_script:
-  - "sudo service zookeeper init"
-  - "sudo service zookeeper start"
+  - "sudo service zookeeper-server init"
+  - "sudo service zookeeper-server start"
 
 before_script:
   - pip install virtualenv
@@ -33,15 +34,15 @@ before_script:
 script: nosetests
 
 after_script:
-  - "sudo service zookeeper stop"
+  - "sudo service zookeeper-server stop"
 
 after-success:
   - cd ..
 
 before_deploy:
-  - zip -r SGA_TeamAviato_StormDetector1.zip stormdetection scripts appspec.yml || true
+  - zip -r SGA_TeamAviato_StormDetector.zip stormdetection scripts appspec.yml || true
   - mkdir -p "stormDetection"
-  - mv SGA_TeamAviato_StormDetector1.zip stormDetection/SGA_TeamAviato_StormDetector1.zip || true
+  - mv SGA_TeamAviato_StormDetector.zip stormDetection/SGA_TeamAviato_StormDetector.zip || true
 
 deploy:      
   - provider: s3
@@ -60,7 +61,7 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
     bucket: teamaviatobucket2
-    key: SGA_TeamAviato_StormDetector1.zip
+    key: SGA_TeamAviato_StormDetector.zip
     bundle_type: zip
     application: TeamAviatoApp
     deployment_group: TeamAviatoApp
