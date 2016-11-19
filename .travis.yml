@@ -19,8 +19,10 @@ install:
 
 script: mvn clean install -DskipTests=true
 
-before_deploy:
+after_success:
   - cd ..
+
+before_deploy:
   - zip -r SGA_Aviato_RouteManager.zip delegate scripts appspec.yml || true
   - mkdir -p "dpl_cd_upload"
   - mv SGA_Aviato_RouteManager.zip dpl_cd_upload/SGA_Aviato_RouteManager.zip || true
@@ -37,16 +39,66 @@ deploy:
     detect_encoding: true
     on:
       branch: route-manager
-
+      
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
     bucket: teamaviatobucket-ohio
     key: SGA_Aviato_RouteManager.zip
     bundle_type: zip
+    application: TeamAviatoApp-ohio
+    deployment_group: TeamAviatoApp-ohio
+    region: us-east-2
+    skip_cleanup: true
+    on:
+      branch: route-manager
+
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket-ohio
+    local_dir: dpl_cd_upload
+    region: us-east-2
+    skip_cleanup: true
+    acl: public_read
+    detect_encoding: true
+    on:
+      branch: route-manager
+      
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket-ohio
+    key: SGA_Aviato_RouteManager.zip
+    bundle_type: zip
+    application: TeamAviatoApp-ohio2
+    deployment_group: TeamAviatoApp-ohio2
+    region: us-east-2
+    skip_cleanup: true
+    on:
+      branch: route-manager
+      
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket2
+    local_dir: dpl_cd_upload
+    region: us-west-2
+    skip_cleanup: true
+    acl: public_read
+    detect_encoding: true
+    on:
+      branch: route-manager
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket2
+    key: SGA_Aviato_RouteManager.zip
+    bundle_type: zip
     application: TeamAviatoApp
     deployment_group: TeamAviatoApp
-    region: us-east-2
+    region: us-west-2
     skip_cleanup: true
     on:
       branch: route-manager
