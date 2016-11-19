@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/StormDetector
+    destination: /home/ec2-user/stormdetection
 hooks:
   BeforeInstall:
     - location: scripts/before-install.sh
