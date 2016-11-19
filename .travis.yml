@@ -65,6 +65,7 @@ deploy:
     application: TeamAviatoApp-ohio
     deployment_group: TeamAviatoApp-ohio
     region: us-east-2
+    skip_cleanup: true
     on:
       branch: api-runforecast
 
