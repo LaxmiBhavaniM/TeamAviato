@@ -33,6 +33,9 @@ script: nosetests
 services:
   - docker
 
+after-success:
+  - cd ..
+
 before_deploy:
   - cd ..
   - zip -r SGA_TeamAviato_StormClustering.zip stormclustering scripts appspec.yml || true
@@ -43,13 +46,26 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket2
+    bucket: teamaviatobucket-ohio
+    local_dir: stormClustering
+    region: us-east-2
     skip_cleanup: true
-    local-dir: stormClustering
     acl: public_read
-    region: us-west-2
     detect_encoding: true
-    on: 
+    on:
+      branch: api-stormclustering
+      
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket-ohio
+    key: SGA_TeamAviato_StormClustering.zip
+    bundle_type: zip
+    application: TeamAviatoApp-ohio
+    deployment_group: TeamAviatoApp-ohio
+    region: us-east-2
+    skip_cleanup: true
+    on:
       branch: api-stormclustering
 
   - provider: s3
@@ -62,8 +78,33 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-stormClustering
+      branch: api-stormclustering
       
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket-ohio
+    key: SGA_TeamAviato_StormClustering.zip
+    bundle_type: zip
+    application: TeamAviatoApp-ohio2
+    deployment_group: TeamAviatoApp-ohio2
+    region: us-east-2
+    skip_cleanup: true
+    on:
+      branch: api-stormclustering
+      
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: teamaviatobucket2
+    local_dir: stormClustering
+    region: us-west-2
+    skip_cleanup: true
+    acl: public_read
+    detect_encoding: true
+    on:
+      branch: api-stormclustering
+
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
@@ -73,18 +114,6 @@ deploy:
     application: TeamAviatoApp
     deployment_group: TeamAviatoApp
     region: us-west-2
-    on:
-      branch: api-stormclustering
-
-  - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket-ohio
-    key: SGA_TeamAviato_StormClustering.zip
-    bundle_type: zip
-    application: TeamAviatoApp
-    deployment_group: TeamAviatoApp
-    region: us-east-2
     skip_cleanup: true
     on:
       branch: api-stormclustering
