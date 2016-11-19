@@ -5,7 +5,7 @@ branches:
     - api-registry
 jdk:
   - oraclejdk8
-sudo: false
+sudo: required
 install: true
 script: cd "registry" && mvn clean install -DskipTests=true
 
