@@ -59,7 +59,7 @@ deploy:
     detect_encoding: true
     on:
       branch: api-stormdetector
-      
+
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
@@ -84,7 +84,7 @@ deploy:
     detect_encoding: true
     on:
       branch: api-stormdetector
-      
+
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
@@ -97,17 +97,17 @@ deploy:
     skip_cleanup: true
     on:
       branch: api-stormdetector
-      
+
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
     bucket: teamaviatobucket2
-    local_dir: stormDetection
-    region: us-west-2
     skip_cleanup: true
+    local-dir: stormDetection
     acl: public_read
+    region: us-west-2
     detect_encoding: true
-    on:
+    on: 
       branch: api-stormdetector
 
   - provider: codedeploy
