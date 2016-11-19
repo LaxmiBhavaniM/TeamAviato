@@ -1,5 +1,6 @@
 echo 'starting installation process' >> /var/log/sga-teamaviato-StormClustering-install.log
 #cd '/home/ec2-user/stormclustering'
+sudo su
 
 rm -r /home/ec2-user/stormClustering
 mv /home/ec2-user/StormClustering  /home/ec2-user/stormClustering

@@ -3,6 +3,10 @@ language: python
 python:
   - "3.3"
 
+branches:
+  only:
+    - api-stormclustering
+
 sudo: required
 
 before_install:
@@ -15,9 +19,6 @@ install: "pip install -r stormclustering/requirements.txt"
 before_script:
   - "sudo service zookeeper init"
   - "sudo service zookeeper start"
-
-after_script:
-  - "sudo service zookeeper stop"
 
 before_script:
   - pip install virtualenv
@@ -32,6 +33,9 @@ before_script:
 
 script: nosetests
 
+after_script:
+  - "sudo service zookeeper stop"
+
 services:
   - docker
 
@@ -39,6 +43,7 @@ after-success:
   - cd ..
 
 before_deploy:
+  - cd /home/travis/build/airavata-courses/TeamAviato
   - zip -r SGA_TeamAviato_StormClustering.zip stormclustering scripts appspec.yml || true
   - mkdir -p "stormClustering"
   - mv SGA_TeamAviato_StormClustering.zip stormClustering/SGA_TeamAviato_StormClustering.zip || true
