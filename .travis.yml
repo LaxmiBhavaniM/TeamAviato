@@ -47,11 +47,11 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket2
+    bucket: teamaviatobucket-ohio
     skip_cleanup: true
     local-dir: forecastTrigger
     acl: public_read
-    region: us-west-2	
+    region: us-east-2	
     detect_encoding: true
     on: 
       branch: api-forecasttrigger
@@ -59,12 +59,12 @@ deploy:
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
-    bucket: teamaviatobucket2
+    bucket: teamaviatobucket-ohio
     key: SGA_TeamAviato_ForecastTrigger.zip
     bundle_type: zip
-    application: TeamAviatoApp
-    deployment_group: TeamAviatoApp
-    region: us-west-2
+    application: TeamAviatoApp-ohio
+    deployment_group: TeamAviatoApp-ohio
+    region: us-east-2
     on:
       branch: api-forecasttrigger
       
