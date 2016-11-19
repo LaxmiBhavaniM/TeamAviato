@@ -16,7 +16,7 @@ install:
   - cd "stormdetection"
   - docker build -t laxmibhavanim/stormdetector .
   - docker ps -a
-  - docker login -e="$MY_DOCKER_EMAIL" -u="$MY_DOCKER_USERNAME" -p="MY_$DOCKER_PASSWORD"
+  - docker login -e="$MY_DOCKER_EMAIL" -u="$MY_DOCKER_USERNAME" -p="$MY_DOCKER_PASSWORD"
   - docker push laxmibhavanim/stormdetector
 
 before_script:
