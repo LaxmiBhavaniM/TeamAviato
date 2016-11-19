@@ -4,20 +4,16 @@ python:
   - "3.3"
 # command to install dependencies
 
+sudo: required
+
 services:
   - docker
 
 before_install:
   - "sudo apt-get install zookeeperd"
 
-install: 
-  - pip install -r stormdetection/requirements.txt
-  - cd "stormdetection"
-  - docker build -t laxmibhavanim/stormdetector .
-  - docker ps -a
-  - docker login -e="$MY_DOCKER_EMAIL" -u="$MY_DOCKER_USERNAME" -p="$MY_DOCKER_PASSWORD"
-  - docker push laxmibhavanim/stormdetector
-  - cd ..
+# command to install dependencies
+install: "pip install -r stormclustering/requirements.txt"
 
 before_script:
   - "sudo service zookeeper init"
@@ -59,7 +55,7 @@ deploy:
     detect_encoding: true
     on:
       branch: api-stormdetector
-
+      
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
@@ -84,7 +80,7 @@ deploy:
     detect_encoding: true
     on:
       branch: api-stormdetector
-
+      
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
@@ -97,17 +93,17 @@ deploy:
     skip_cleanup: true
     on:
       branch: api-stormdetector
-
+      
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
     secret_access_key: $AWS_SECRET_KEY
     bucket: teamaviatobucket2
-    skip_cleanup: true
-    local-dir: stormDetection
-    acl: public_read
+    local_dir: stormDetection
     region: us-west-2
+    skip_cleanup: true
+    acl: public_read
     detect_encoding: true
-    on: 
+    on:
       branch: api-stormdetector
 
   - provider: codedeploy
@@ -122,7 +118,6 @@ deploy:
     skip_cleanup: true
     on:
       branch: api-stormdetector
-    
 
 after_deploy:
   - echo "Performing after deploy procedures..."
