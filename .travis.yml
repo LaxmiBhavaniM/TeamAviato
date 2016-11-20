@@ -6,7 +6,7 @@ python:
 # command to install dependencies
 branches:
   only:
-    - api-stormdetector
+    - api-runforecast
 
 sudo: required
 
