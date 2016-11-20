@@ -46,7 +46,7 @@ def register_to_zookeeper():
     ipaddress = host
     serviceURI = "/runforecast/v1/service"
     port = 8050
-    path = "http://" + ipaddress + ":" + str(port) + ":" + serviceURI
+    path = "http://" + ipaddress + ":" + str(port) + serviceURI
 
     try:  # create base
         zk.create('/weather-predictor')
