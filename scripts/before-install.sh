@@ -36,15 +36,16 @@ if [ ! -d "$dir" ] ; then
 	wget http://www-us.apache.org/dist/zookeeper/stable/zookeeper-3.4.9.tar.gz
 	tar xzf zookeeper-3.4.9.tar.gz 
 	rm zookeeper-3.4.9.tar.gz 
-	cd zookeeper-3.4.9/conf
-	sudo mv zoo_sample.cfg zoo.cfg
-	oldString="dataDir=/temp/zookeeper"
-	newString="dataDir=/var/lib/zookeeper"
-	sed -i "s/$oldString/$newString/g" zoo.cfg
+	cd "$dir/conf"
+	touch zoo.cfg
+	echo "tickTime=2000" > zoo.cfg
+	echo "initLimit=10" >> zoo.cfg
+	echo "syncLimit=5" >> zoo.cfg
+	echo "dataDir=/var/lib/zookeeper" >> zoo.cfg
+	echo "clientPort=2181" >> zoo.cfg
 	echo "server.1=52.15.57.97:2888:3888" >> zoo.cfg
 	echo "server.2=35.164.24.104:2888:3888" >> zoo.cfg
 	echo "server.3=52.15.40.136:2888:3888" >> zoo.cfg
-	cd ..
 fi
 
 cd "$dir/bin"
