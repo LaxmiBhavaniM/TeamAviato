@@ -24,6 +24,7 @@ after-success:
 
 before_deploy:
   - pwd
+  - cd /home/travis/build/airavata-courses/TeamAviato/
   - zip -r SGA_Aviato_DataIngestor.zip api-ingestor scripts appspec.yml || true
   - mkdir -p "dpl_cd_upload"
   - mv SGA_Aviato_DataIngestor.zip dpl_cd_upload/SGA_Aviato_DataIngestor.zip || true
