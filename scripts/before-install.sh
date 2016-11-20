@@ -30,14 +30,14 @@ if [ "$?" -ne 0 ]; then
 fi
 
 install_dir="/usr/local"
-dir="/usr/local/zookeeper-3.4.9"
+dir="/usr/local/zookeeper-3.4.8"
 if [ ! -d "$dir" ] ; then
 	cd "$install_dir"
-	wget http://www-us.apache.org/dist/zookeeper/stable/zookeeper-3.4.9.tar.gz
-	tar xzf zookeeper-3.4.9.tar.gz 
-	rm zookeeper-3.4.9.tar.gz 
+	wget http://www-us.apache.org/dist/zookeeper/stable/zookeeper-3.4.8.tar.gz
+	tar xzf zookeeper-3.4.8.tar.gz 
+	rm zookeeper-3.4.8.tar.gz 
 	cd "$dir/conf"
-	touch zoo.cfg
+	sudo touch zoo.cfg
 	echo "tickTime=2000" > zoo.cfg
 	echo "initLimit=10" >> zoo.cfg
 	echo "syncLimit=5" >> zoo.cfg
