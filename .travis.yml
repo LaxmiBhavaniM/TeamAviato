@@ -92,7 +92,7 @@ deploy:
     bucket: teamaviatobucket-ohio
     key: SGA_TeamAviato_RunForeCast.zip
     bundle_type: zip
-    application: TeamAviatoApp-ohio
+    application: TeamAviatoApp-ohio2
     deployment_group: TeamAviatoApp-ohio2
     region: us-east-2
     skip_cleanup: true
