@@ -19,10 +19,12 @@ install:
 
 script: mvn clean install -DskipTests=true
 
-after_success:
-  - cd ..
+after-success:
+  - cd /home/ec2-user/router-microservice
 
 before_deploy:
+  - pwd
+  - cd /home/travis/build/airavata-courses/TeamAviato/
   - zip -r SGA_Aviato_RouteManager.zip delegate scripts appspec.yml || true
   - mkdir -p "dpl_cd_upload"
   - mv SGA_Aviato_RouteManager.zip dpl_cd_upload/SGA_Aviato_RouteManager.zip || true
