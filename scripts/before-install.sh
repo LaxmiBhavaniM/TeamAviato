@@ -29,6 +29,7 @@ if [ "$?" -ne 0 ]; then
 	mvn --version
 fi
 
+echo 'check if Zookeeper is installed'
 dir="/usr/local"
 if [ ! -d "$dir" ] ; then
 	cd "$dir"
