@@ -20,7 +20,7 @@ install:
 script: mvn clean install -DskipTests=true
 
 after-success:
-  - cd ..
+  - cd /home/ec2-user/ingestor-microservice
 
 before_deploy:
   - zip -r SGA_Aviato_DataIngestor.zip api-ingestor scripts appspec.yml || true
