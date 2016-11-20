@@ -23,6 +23,7 @@ after-success:
   - cd /home/ec2-user/ingestor-microservice
 
 before_deploy:
+  - pwd
   - zip -r SGA_Aviato_DataIngestor.zip api-ingestor scripts appspec.yml || true
   - mkdir -p "dpl_cd_upload"
   - mv SGA_Aviato_DataIngestor.zip dpl_cd_upload/SGA_Aviato_DataIngestor.zip || true
