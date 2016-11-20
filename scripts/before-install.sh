@@ -29,10 +29,9 @@ if [ "$?" -ne 0 ]; then
 	mvn --version
 fi
 
-install_dir="/usr/local"
-dir="/usr/local/zookeeper-3.4.8"
+dir="/usr/local"
 if [ ! -d "$dir" ] ; then
-	cd "$install_dir"
+	cd "$dir"
 	wget http://www-us.apache.org/dist/zookeeper/stable/zookeeper-3.4.8.tar.gz
 	tar xzf zookeeper-3.4.8.tar.gz 
 	rm zookeeper-3.4.8.tar.gz 
@@ -56,8 +55,8 @@ sudo yum install -y docker-io
 sudo service docker start
 
 #Remove existing containers if any
-docker ps -a | grep -w "api-di" | awk '{print $1}' | xargs --no-run-if-empty docker stop
-docker ps -a | grep -w "api-di" | awk '{print $1}' | xargs --no-run-if-empty docker rm
+sudo docker ps -a | grep -w "api-di" | awk '{print $1}' | xargs --no-run-if-empty docker stop
+sudo docker ps -a | grep -w "api-di" | awk '{print $1}' | xargs --no-run-if-empty docker rm
 
 #Remove existing images if any
-docker images | grep -w "tilaks/dataingestor" | awk '{print $3}' | xargs --no-run-if-empty docker rmi -f
+sudo docker images | grep -w "tilaks/dataingestor" | awk '{print $3}' | xargs --no-run-if-empty docker rmi -f
