@@ -27,8 +27,8 @@ if [ ! -d "$dir" ] ; then
         echo "dataDir=/var/lib/zookeeper" >> zoo.cfg
         echo "clientPort=2181" >> zoo.cfg
         echo "server.1=52.15.57.97:2888:3888" >> zoo.cfg
-        echo "server.2=35.164.24.104:2888:3888" >> zoo.cfg
-        echo "server.3=52.15.40.136:2888:3888" >> zoo.cfg
+        echo "server.2=52.15.40.136:2888:3888" >> zoo.cfg
+        echo "server.3=35.164.24.104:2888:3888" >> zoo.cfg
 fi
 
 cd "$dir/bin"
@@ -39,8 +39,8 @@ sudo yum install -y docker-io
 sudo service docker start
 
 #Remove existing containers if any
-docker ps -a | grep -w "route" | awk '{print $1}' | xargs --no-run-if-empty docker stop
-docker ps -a | grep -w "route" | awk '{print $1}' | xargs --no-run-if-empty docker rm
+sudo docker ps -a | grep -w "route" | awk '{print $1}' | xargs --no-run-if-empty docker stop
+sudo docker ps -a | grep -w "route" | awk '{print $1}' | xargs --no-run-if-empty docker rm
 
 #Remove existing images if any
-docker images | grep -w "tilaks/router" | awk '{print $3}' | xargs --no-run-if-empty docker rmi -f
+sudo docker images | grep -w "tilaks/router" | awk '{print $3}' | xargs --no-run-if-empty docker rmi -f
