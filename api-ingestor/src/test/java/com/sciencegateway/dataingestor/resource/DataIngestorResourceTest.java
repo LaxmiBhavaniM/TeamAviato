@@ -7,17 +7,17 @@ import org.junit.Test;
 
 import com.sciencegateway.dataingestor.POJO.URLObjects;
 
-public class RESTResourceTest 
+public class DataIngestorResourceTest 
 {
 	
 	private URLObjects urlObjects;
-	private RESTResource restResource;
+	private DataIngestorResource restResource;
 	
 	@Before
 	public void setUp() throws Exception
 	{
 		urlObjects = new URLObjects();
-		restResource = new RESTResource();
+		restResource = new DataIngestorResource();
 	}
 	
 	@Test
