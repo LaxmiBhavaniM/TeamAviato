@@ -88,7 +88,7 @@ public class DataIngestorResource
 		ClientConfig clientConfigR = new ClientConfig();
 		Client clientR = ClientBuilder.newClient(clientConfigR);
 		clientR.property(ClientProperties.CONNECT_TIMEOUT, 5000);
-		WebTarget targetR = clientR.target("http://52.15.57.97:8082/registry/v1/service/logger");
+		WebTarget targetR = clientR.target("http://35.164.24.104:8080/registry/v1/service/logger");
 		logger.info(targetR.toString());
 		Response responseToR = targetR.request().post(Entity.entity(jsonObject.toString(), "application/json"),Response.class);
 		logger.info(responseToR.toString());
