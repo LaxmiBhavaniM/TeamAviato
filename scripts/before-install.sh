@@ -27,8 +27,8 @@ if [ ! -d "$dir" ] ; then
         echo "dataDir=/var/lib/zookeeper" >> zoo.cfg
         echo "clientPort=2181" >> zoo.cfg
         echo "server.1=52.15.57.97:2888:3888" >> zoo.cfg
-        echo "server.2=35.164.24.104:2888:3888" >> zoo.cfg
-        echo "server.3=52.15.40.136:2888:3888" >> zoo.cfg
+        echo "server.2=52.15.40.136:2888:3888" >> zoo.cfg
+        echo "server.3=35.164.24.104:2888:3888" >> zoo.cfg
 fi
 
 cd "$dir/bin"
