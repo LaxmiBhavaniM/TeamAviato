@@ -10,6 +10,7 @@ import json
 import calendar, datetime, time
 from datetime import datetime
 from kazoo.client import KazooClient
+from kazoo.client import KazooState
 import logging
 import uuid
 import urllib.request
@@ -24,20 +25,35 @@ from kazoo.exceptions import (
     WriterNotClosedException,
 )
 
-def register_to_zookeeper():
-    logging.basicConfig(filename='zkregistry.log', level=logging.DEBUG, format="%(asctime)s - %(name)s - %(message)s",
-                        datefmt="%H:%M:%S", filemode='w')
+def my_listener(state):
+    if state==KazooState.LOST:
+        register_to_zookeeper()
+        print("Connected")
+    elif state==KazooState.SUSPENDED:
+        print ("connection suspended")
+    else:
+        print(state)
+        print("connection error")
+
+def get_host_url():
     try:
         host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
     except Exception as e:
         print("Error while connecting to aws get instance info",type(e))
         host="localhost"
+    return host
 
+def register_to_zookeeper():
+    logging.basicConfig(filename='zkregistry.log', level=logging.DEBUG, format="%(asctime)s - %(name)s - %(message)s",
+                        datefmt="%H:%M:%S", filemode='w')
+
+    host = get_host_url()
     zport=2181
     zurl=host+":"+str(zport)
     zk = KazooClient(hosts=zurl)
     # zk = KazooClient(hosts='localhost:2181')
     zk.start()
+    zk.add_listener(my_listener)
 
     # ********** register service with zookeeper *********
     serviceName = "stormDetector"
@@ -84,9 +100,6 @@ def register_to_zookeeper():
         logging.debug("/weather-predictor/stormDetector child znode created %s" % uniqueid)
         # ******************REGISTERED************
 
-#register
-register_to_zookeeper()
-
 #start service
 app = Flask(__name__)
 
@@ -104,11 +117,7 @@ def sendkml():
     #---------------------------------------------------------
     #connect to registry
     try:
-        try:
-            host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
-        except Exception as e:
-            print("Error while connecting to aws get instance info", type(e))
-            host = "localhost"
+        host = get_host_url()
 
         config = ConfigParser()
         config.read('config.ini')
@@ -133,4 +142,6 @@ def getkmlfile(yy,mm,dd,station,filename):
     return 'KML_output.kml'
 
 if __name__ == '__main__':
+    # register
+    register_to_zookeeper()
     app.run(host='0.0.0.0',port=8000)
