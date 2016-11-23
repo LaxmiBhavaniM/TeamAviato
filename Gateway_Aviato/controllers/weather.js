@@ -1,5 +1,6 @@
 var request = require('request');
 var uuid = require('node-uuid');
+var async = require('async');
 
 exports.getWeather = (req, res) => {
   res.render('weather', {
@@ -30,167 +31,282 @@ exports.postWeather = (req, res, next) => {
 
   var reqId = userRequest.requestId;
 
-  // Data Ingestor - http://52.15.57.97:7000/zookeeper-app/webapi/ingestor/delegate
-  // Storm Detector - http://52.15.57.97:7000/zookeeper-app/webapi/detector/delegate
-  // Storm Clustering - http://52.15.57.97:7000/zookeeper-app/webapi/clustering/delegate                        
-  // Trigger Forecast - http://52.15.57.97:7000/zookeeper-app/webapi/trigger/delegate
-  // Run Forecast - http://52.15.57.97:7000/zookeeper-app/webapi/forecast/delegate
+  var url_ingestor_delegator   = 'http://52.15.40.136:7000/zookeeper-app/webapi/ingestor/delegate';
+  var url_detector_delegator   = 'http://52.15.40.136:7000/zookeeper-app/webapi/detector/delegate';
+  var url_clustering_delegator = 'http://52.15.40.136:7000/zookeeper-app/webapi/clusteringDelegate/delegate';
+  var url_trigger_delegator    = 'http://52.15.40.136:7000/zookeeper-app/webapi/trigger/delegate';
+  var url_forecast_delegator   = 'http://52.15.40.136:7000/zookeeper-app/webapi/forecast/delegate';
 
   var urlDataIngestor, urlStormDetector, urlStormClustering, urlTriggerForecast, urlRunForecast;
-  request({
-    url: 'http://52.15.57.97:9000/dataingestor/webapi/ingestor/delegate',
-    method: 'GET',
-  }, function(error, response, body){
-    urlDataIngestor = body;
-    console.log('Got back Data Ingestor URL: ' + urlDataIngestor);
-  });
-  request({
-    url: 'http://52.15.57.97:7000/zookeeper-app/webapi/detector/delegate',
-    method: 'GET',
-  }, function(error, response, body){
-    urlStormDetector = body;
-    console.log('Got back Storm Det URL: ' + urlStormDetector);
-  });
-  request({
-    url: 'http://52.15.57.97:7000/zookeeper-app/webapi/clustering/delegate',
-    method: 'GET',
-  }, function(error, response, body){
-    urlStormClustering = body;
-    console.log('Got back Storm CLustering URL: ' + urlStormClustering);
-  });
-  request({
-    url: 'http://52.15.57.97:7000/zookeeper-app/webapi/trigger/delegate',
-    method: 'GET',
-  }, function(error, response, body){
-    urlTriggerForecast = body;
-    console.log('Got back Trigger Forecast URL: ' + urlTriggerForecast);
-  });
-  request({
-    url: 'http://52.15.57.97:7000/zookeeper-app/webapi/forecast/delegate',
-    method: 'GET',
-  }, function(error, response, body){
-    urlRunForecast = body;
-    console.log('Got back Run Forecast URL: ' + urlRunForecast);
-  });
-  
-  var requestSuccess = 0;
-  request({ // Request to the Data Ingestor
-    url: urlDataIngestor,
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json'},
-    json: userRequest
-  }, function(error, response, body){
-    if(error) {
-    	console.log('Generic error while connecting to the data ingestor');
-      console.log(error);
-      requestSuccess = -1;
-    }
-    else if(response.statusCode != 200){
-    	console.log('There was an error connecting to the Data Ingestor. Response: ' + response.statusCode);
-      requestSuccess = 1;
-    }
-    else if (response.statusCode == 200){
-    	console.log('Response from Data Ingestor is: ' + response.statusCode);
-    	var diResponse = response.body;
+  var diResponse, sdResponse, scResponse, ftResponse, rfResponse;
 
+  async.auto({
+    one: function(callback){
+      console.log('Started Ingestor');
+      request({
+        url: url_ingestor_delegator,
+        method: 'GET',
+      }, function(error, response, body){
+        if(error){ console.log(error); callback(error, 'Error while connecting to the Ingestor delegator.');}
+        else{
+          console.log('Ingestor: ' + response.statusCode);
+          if(response.statusCode == 200){
+            urlDataIngestor = response.body;
+            callback(null, 'success');
+          }
+          else{
+            callback(new Error(), 'Received non 200 response from the Ingestor Delegator.');
+          }
+        }
+      });
+    },
+    two: function(callback){
+      console.log('Started Detector');
+      request({
+        url: url_detector_delegator,
+        method: 'GET',
+      }, function(error, response, body){
+        if(error){ console.log(error); callback(error, 'Error while connecting to the Detector Delegator.');}
+        else{
+          console.log('Detector: ' + response.statusCode);
+          if(response.statusCode == 200){
+            urlStormDetector = response.body;
+            callback(null, 'success');
+          }
+          else{
+            callback(new Error(), 'Received non 200 response from the Detector Delegator.');
+          }
+        }
+      });
+    },
+    three: function(callback){
+      console.log('Started Clustering');
+      request({
+        url: url_clustering_delegator,
+        method: 'GET',
+      }, function(error, response, body){
+        if(error){ console.log(error); callback(error, 'Error while connecting to the Clustering Delegator.');}
+        else{
+          console.log('Clustering: ' + response.statusCode);
+          if(response.statusCode == 200){
+            urlStormClustering = response.body;
+            callback(null, 'success');
+          }
+          else{
+            callback(new Error(), 'Received non 200 response from the Clustering Delegator.');
+          }
+        }
+      });
+    },
+    four: function(callback){
+      console.log('Started Trigger');
+      request({
+        url: url_trigger_delegator,
+        method: 'GET',
+      }, function(error, response, body){
+        if(error){ console.log(error); callback(error, 'Error while connecting to the Trigger Delegator.');}
+        else{
+          console.log('Trigger: ' + response.statusCode);
+          if(response.statusCode == 200){
+            urlTriggerForecast = response.body;
+            callback(null, 'success');
+          }
+          else{
+            callback(new Error(), 'Received non 200 response from the Trigger Delegator.');
+          }
+        }
+      });
+    },
+    five: function(callback){
+      console.log('Started Forecast');
+      request({
+        url: url_forecast_delegator,
+        method: 'GET',
+      }, function(error, response, body){
+        if(error){ console.log(error); callback(error, 'Error while connecting to the Forecast Delegator.');}
+        else{
+          console.log('Forecast: ' + response.statusCode);
+          if(response.statusCode == 200){
+            urlRunForecast = response.body;
+            callback(null, 'success');
+          }
+          else{
+            callback(new Error(), 'Received non 200 response from the Forecast Delegator.');
+          }
+        }
+      });
+    },
+    last: ['one', 'two', 'three', 'four', 'five', function(results, callback){
+      console.log('In the last function');
+      console.log(urlDataIngestor);
+      console.log(urlStormDetector);
+      console.log(urlStormClustering);
+      console.log(urlTriggerForecast);
+      console.log(urlRunForecast);
+      callback(null, 'Success');  
+    }],
+    f1: ['last', function(results, callback){
+      console.log('Connecting to Ingestor microservice');
+      request({ // Request to the Data Ingestor
+        url: urlDataIngestor,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        json: userRequest
+        },
+        function(error, response, body){
+          if(error) {
+            console.log('Generic error while connecting to the data ingestor');
+            console.log(error);
+            requestSuccess = -1;
+            callback(error, 'Error while connecting to the Ingestor.');
+          }
+          else if(response.statusCode != 200){
+            console.log('There was an error connecting to the Data Ingestor. Response: ' + response.statusCode);
+            requestSuccess = 1;
+            callback(new Error(), 'Non 200 while connecting to the Ingestor.');
+          }
+          else if (response.statusCode == 200){
+            console.log('Response from Data Ingestor is: ' + response.statusCode);
+            diResponse = response.body;
+            callback(null, 'Success');
+          }
+      });
+    }],
+    f2: ['f1', function(results, callback){
       request({ // Request to the storm detector
         url: urlStormDetector,
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         json: diResponse
-        },function(errorDet, responseDet, bodyDet){
-          if(errorDet){
-            console.log('Generic error while connecting to the storm detector.');
-            console.log(errorDet);
+        },
+        function(error, response, body){
+          if(error) {
+            console.log('Generic error while connecting to the storm detector');
+            console.log(error);
             requestSuccess = -1;
+            callback(error, 'Error while connecting to the Detector.');
           }
-          else if(responseDet.statusCode != 200){
-            console.log(responseDet.statusCode + ' while connecting to the storm detector. ReqId is: ' + reqId);
-            requestSuccess = 2;
+          else if(response.statusCode != 200){
+            console.log('There was an error connecting to the Detector. Response: ' + response.statusCode);
+            requestSuccess = 1;
+            callback(new Error(), 'Non 200 while connecting to the Detector.');
           }
-          else if(responseDet.statusCode == 200){
-            console.log('Storm detection was successful.');
-            request({ // Request to the storm clustering
-              url: urlStormClustering,
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              json: responseDet.body
-              },function(errorClust, responseClust, bodyClust){
-                if(errorClust){
-                  console.log('Generic error while connecting to the storm clustering.');
-                  console.log(errorClust);
-                  requestSuccess = -1;
-                }
-                else if(responseClust.statusCode != 200){
-                  console.log(responseClust.statusCode + ' while connecting to the storm clustering. ReqId is: ' + reqId);
-                  requestSuccess = 2;
-                }
-                else if(responseClust.statusCode == 200){
-                  request({ // Request to the forecast trigger
-                    url: urlTriggerForecast,
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    json: responseDet.body
-                    },function(errorTrig, responseTrig, bodyTrig){
-                      if(errorTrig){
-                        console.log('Generic error while connecting to the forecast trigger.');
-                        console.log(errorTrig);
-                        requestSuccess = -1;
-                      }
-                      else if(responseTrig.statusCode != 200){
-                        console.log(responseTrig.statusCode + ' while connecting to the forecast trigger. ReqId is: ' + reqId);
-                        requestSuccess = 2;
-                      }
-                      else if(responseTrig.statusCode == 200){
-                        console.log('From forecast trigger: ' + bodyTrig.trigger_response);
-
-                        if(bodyTrig.trigger_response == 'Yes'){
-                            request({
-                                url: urlRunForecast,
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                json: diResponse
-                            }, function(errorRun, responseRun, bodyRun){
-                                if(errorRun){
-                                    console.log('Generic error while connecting to the forecaster.');
-                                    console.log(errorRun);
-                                    requestSuccess = -1;
-                                }
-                                else if(responseRun.statusCode != 200){
-                                    console.log('Error code ' + responseRun.statusCode + ' while connecting to the run forecaster. ReqId is: ' + reqId);
-                                    requestSuccess = 3;
-                                }
-                                else if(responseRun.statusCode == 200){
-                                    //console.log('Runforecast was successful');    
-                                }
-                                if(requestSuccess == 0){
-                                    //var outputMessage = body.temperature;
-                                    req.flash('success', {msg: 'Storm detection was successful.'});
-                                    req.session.forecastData = bodyRun;
-                                    res.redirect('/results');
-                                }
-                                else{
-                                    req.flash('error', {msg: 'Storm detection was not successful.'});
-                                    res.redirect('/weather');   
-                                }
-                            });
-                        }
-                        else{
-                            req.flash('success', {msg: 'No storm is predicted.'});
-                            res.redirect('/weather');
-                        }
-                      }
-                  });
-                }
-            });
+          else if (response.statusCode == 200){
+            console.log('Response from Detector is: ' + response.statusCode);
+            sdResponse = response.body;
+            callback(null, 'Success');
           }
+      });
+    }],
+    f3: ['f2', function(results, callback){
+      request({ // Request to the storm clustering
+        url: urlStormClustering,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        json: sdResponse
+        },
+        function(error, response, body){
+          if(error) {
+            console.log('Generic error while connecting to the storm clustering');
+            console.log(error);
+            requestSuccess = -1;
+            callback(error, 'Error while connecting to the Clustering.');
+          }
+          else if(response.statusCode != 200){
+            console.log('There was an error connecting to the Clustering. Response: ' + response.statusCode);
+            requestSuccess = 1;
+            callback(new Error(), 'Non 200 while connecting to the Clustering.');
+          }
+          else if (response.statusCode == 200){
+            console.log('Response from Clustering is: ' + response.statusCode);
+            scResponse = response.body;
+            callback(null, 'Success');
+          }
+      });
+    }],
+    f4: ['f3', function(results, callback){
+      request({ // Request to the forecast trigger
+        url: urlTriggerForecast,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        json: scResponse
+        },
+        function(error, response, body){
+          if(error) {
+            console.log('Generic error while connecting to the Forecast Trigger');
+            console.log(error);
+            requestSuccess = -1;
+            callback(error, 'Error while connecting to the Forecast Trigger.');
+          }
+          else if(response.statusCode != 200){
+            console.log('There was an error connecting to the Forecast Trigger. Response: ' + response.statusCode);
+            requestSuccess = 1;
+            callback(new Error(), 'Non 200 while connecting to the Forecast Trigger.');
+          }
+          else if (response.statusCode == 200){
+            console.log('Response from Forecast Trigger is: ' + response.statusCode);
+            ftResponse = response.body;
+            console.log(ftResponse);//bodyTrig.trigger_response == 'Yes'
+            callback(null, 'Success');
+          }
+      });
+    }],
+    f5: ['f4', function(results, callback){
+      if(ftResponse.trigger_response == 'Yes'){
+        console.log('Got back a yes from the forecast trigger.');
+        request({ // Request to the storm clustering
+          url: urlRunForecast,
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          json: diResponse
+          },
+          function(error, response, body){
+            if(error) {
+              console.log('Generic error while connecting to Run Forecast');
+              console.log(error);
+              requestSuccess = -1;
+              callback(error, 'Error while connecting to Run Forecast.');
+            }
+            else if(response.statusCode != 200){
+              console.log('There was an error connecting to Run Forecast. Response: ' + response.statusCode);
+              requestSuccess = 1;
+              callback(new Error(), 'Non 200 while connecting to Run Forecast.');
+            }
+            else if (response.statusCode == 200){
+              console.log('Response from Run Forecast is: ' + response.statusCode);
+              rfResponse = response.body;
+              callback(null, 'Success');
+            }
         });
-      
-
+      }
+      else{
+        callback(null, 'no');
+      }
+    }],
+  }, function(err, results){
+    console.log('In the final callback');
+    console.log(results);
+    
+    if(err){
+      console.log('Detected an error.');
+      req.flash('info', {msg: 'Storm detection was not successful.'});
+      res.redirect('/weather');
     }
+    else if(results['f5'] == 'no'){
+      req.flash('success', {msg: 'No storm is predicted.'});
+      res.redirect('/weather');  
+    }
+    else{
+      req.flash('success', {msg: 'Storm detection was successful.'});
+      req.session.forecastData = rfResponse;
+      res.redirect('/results');  
+    }
+    //res.redirect('/weather');
   });
 
   
+  var requestSuccess = 0;
+    
 
 
   //req.flash('success', { msg: '' });
