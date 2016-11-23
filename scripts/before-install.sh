@@ -32,8 +32,8 @@ if [ ! -d "$dir" ] ; then
 fi
 
 cd "$dir/bin"
-./zkServer.sh stop
-./zkServer.sh start
+sudo ./zkServer.sh stop
+sudo ./zkServer.sh start
 
 sudo yum install -y docker-io
 sudo service docker start
