@@ -5,7 +5,7 @@ python:
 
 branches:
   only:
-    - api-stormdetector
+    - api-stormdetector-release
 
 sudo: required
 
@@ -59,7 +59,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-stormdetector
+      branch: api-stormdetector-release
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -72,7 +72,7 @@ deploy:
     region: us-east-2
     skip_cleanup: true
     on:
-      branch: api-stormdetector
+      branch: api-stormdetector-release
 
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -84,7 +84,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-stormdetector
+      branch: api-stormdetector-release
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -97,7 +97,7 @@ deploy:
     region: us-east-2
     skip_cleanup: true
     on:
-      branch: api-stormdetector
+      branch: api-stormdetector-release
 
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -108,8 +108,8 @@ deploy:
     skip_cleanup: true
     acl: public_read
     detect_encoding: true
-    on:
-      branch: api-stormdetector
+    on: 
+      branch: api-stormdetector-release
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -122,7 +122,7 @@ deploy:
     region: us-west-2
     skip_cleanup: true
     on:
-      branch: api-stormdetector
+      branch: api-stormdetector-release
 
 after_deploy:
   - echo "Performing after deploy procedures..."
