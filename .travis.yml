@@ -6,7 +6,7 @@ python:
 
 branches:
   only:
-    - api-runforecast
+    - api-runforecast-release
 
 sudo: required
 
@@ -59,7 +59,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-runforecast
+      branch: api-runforecast-release
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -72,7 +72,7 @@ deploy:
     region: us-east-2
     skip_cleanup: true
     on:
-      branch: api-runforecast
+      branch: api-runforecast-release
 
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -84,7 +84,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-runforecast
+      branch: api-runforecast-release
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -97,7 +97,7 @@ deploy:
     region: us-east-2
     skip_cleanup: true
     on:
-      branch: api-runforecast
+      branch: api-runforecast-release
 
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -108,8 +108,8 @@ deploy:
     skip_cleanup: true
     acl: public_read
     detect_encoding: true
-    on:
-      branch: api-runforecast
+    on: 
+      branch: api-runforecast-release
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -122,9 +122,8 @@ deploy:
     region: us-west-2
     skip_cleanup: true
     on:
-      branch: api-runforecast
-
-
+      branch: api-runforecast-release
+      
 after_deploy:
   - echo "Performing after deploy procedures..."
   - done
