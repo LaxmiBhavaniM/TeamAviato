@@ -12,6 +12,7 @@ import json
 import calendar, datetime, time
 from datetime import datetime
 from kazoo.client import KazooClient
+from kazoo.client import KazooState
 import logging
 import uuid
 from kazoo.exceptions import (
@@ -25,22 +26,34 @@ from kazoo.exceptions import (
     WriterNotClosedException,
 )
 
-def register_to_zookeeper():
-    logging.basicConfig(filename='zkregistry.log', level=logging.DEBUG, format="%(asctime)s - %(name)s - %(message)s",
-                        datefmt="%H:%M:%S", filemode='w')
+def my_listener(state):
+    if state==KazooState.LOST:
+        register_to_zookeeper()
+    elif state==KazooState.SUSPENDED:
+        print ("connection suspended")
+    else:
+        print(state)
+        print("connection error")
 
+def get_host_url():
     try:
         host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
     except Exception as e:
         print("Error while connecting to aws get instance info",type(e))
         host="localhost"
+    return host
 
+def register_to_zookeeper():
+    logging.basicConfig(filename='zkregistry.log', level=logging.DEBUG, format="%(asctime)s - %(name)s - %(message)s",
+                        datefmt="%H:%M:%S", filemode='w')
+
+    host = get_host_url()
     zport=2181
     zurl = host + ":" + str(zport)
     zk = KazooClient(hosts=zurl)
     # zk = KazooClient(hosts='localhost:2181')
     zk.start()
-
+    zk.add_listener(my_listener)
     # ********** register service with zookeeper *********
     serviceName = "runForecast"
     ipaddress = host
@@ -86,8 +99,7 @@ def register_to_zookeeper():
         logging.debug("/weather-predictor/runForecast child znode created %s" % uniqueid)
         # ******************REGISTERED************
 
-#register
-register_to_zookeeper()
+
 
 app = Flask(__name__)
 
@@ -106,11 +118,7 @@ def generatecluster():
     # ---------------------------------------------------------
     # connect to registry
     try:
-        try:
-            host = urllib.request.urlopen("http://169.254.169.254/latest/meta-data/public-ipv4").read().decode('utf-8')
-        except Exception as e:
-            print("Error while connecting to aws get instance info", type(e))
-            host = "localhost"
+        host = get_host_url()
 
         config = ConfigParser()
         config.read('config.ini')
@@ -138,4 +146,6 @@ def get_forecast(cluster):
 
     return {'weatherType':weatherType,'temperature':temperature,'units':units}
 if __name__ == '__main__':
+    # register
+    register_to_zookeeper()
     app.run(host='0.0.0.0',port=8050)
