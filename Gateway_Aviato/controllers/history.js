@@ -10,7 +10,7 @@ exports.getHistory = (req, res) => {
   myReqObject.userName = req.user.email;
 
   request({
-  	url: 'http://ec2-35-160-243-251.us-west-2.compute.amazonaws.com:8082/registry/v1/service/user',
+  	url: 'http://ec2-35-164-24-104.us-west-2.compute.amazonaws.com:8082/registry/v1/service/user',
   	method: 'POST',
   	headers: { 'Content-Type': 'application/json' },
   	json: myReqObject

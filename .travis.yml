@@ -19,7 +19,7 @@ install:
   - npm install
 
 before_deploy:
-  - cd ..
+  - cd /home/travis/build/airavata-courses/TeamAviato
   - zip -r SGA_Aviato_Gateway.zip Gateway_Aviato scripts appspec.yml || true
   - mkdir -p "gateway_upload"
   - mv SGA_Aviato_Gateway.zip gateway_upload/SGA_Aviato_Gateway.zip || true
