@@ -69,8 +69,7 @@ public class DataIngestorInit implements ServletContextListener
         {
         	logger.error(exception.toString(),exception);
             throw new RuntimeException("Could not register service \"" + serviceName + "\", with URI \"" + serviceURI + "\": " + exception.getMessage());
-        }   
-        curatorFramework.close();
+        }
     }
 
 }
