@@ -31,11 +31,11 @@ exports.postWeather = (req, res, next) => {
 
   var reqId = userRequest.requestId;
 
-  var url_ingestor_delegator   = 'http://52.15.40.136:7000/zookeeper-app/webapi/ingestor/delegate';
-  var url_detector_delegator   = 'http://52.15.40.136:7000/zookeeper-app/webapi/detector/delegate';
-  var url_clustering_delegator = 'http://52.15.40.136:7000/zookeeper-app/webapi/clusteringDelegate/delegate';
-  var url_trigger_delegator    = 'http://52.15.40.136:7000/zookeeper-app/webapi/trigger/delegate';
-  var url_forecast_delegator   = 'http://52.15.40.136:7000/zookeeper-app/webapi/forecast/delegate';
+  var url_ingestor_delegator   = 'http://35.164.24.104:7000/zookeeper-app/webapi/ingestor/delegate';
+  var url_detector_delegator   = 'http://35.164.24.104:7000/zookeeper-app/webapi/detector/delegate';
+  var url_clustering_delegator = 'http://35.164.24.104:7000/zookeeper-app/webapi/clusteringDelegate/delegate';
+  var url_trigger_delegator    = 'http://35.164.24.104:7000/zookeeper-app/webapi/trigger/delegate';
+  var url_forecast_delegator   = 'http://35.164.24.104:7000/zookeeper-app/webapi/forecast/delegate';
 
   var urlDataIngestor, urlStormDetector, urlStormClustering, urlTriggerForecast, urlRunForecast;
   var diResponse, sdResponse, scResponse, ftResponse, rfResponse;
