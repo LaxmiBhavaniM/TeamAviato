@@ -93,6 +93,7 @@ public class DelegateTriggerForecast
 			String url = uriSpec.build();
 			System.out.println("URL: " + url);
 			System.out.println("Address: " + address);
+			curatorFramework.close();
 			return url;
 			
 		} 
@@ -102,6 +103,7 @@ public class DelegateTriggerForecast
 			exception.printStackTrace();
 		}
 		
+		curatorFramework.close();
 	    return "Delegated!";	    
 	}
 	
