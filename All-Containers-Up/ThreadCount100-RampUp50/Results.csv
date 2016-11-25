@@ -1,0 +1,501 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,grpThreads,allThreads,Latency,IdleTime
+1480044358360,937,Login,200,OK,Weather Predictor Test Cases 1-1,text,true,,3605,2,2,936,0
+1480044358855,626,Login,200,OK,Weather Predictor Test Cases 1-2,text,true,,3599,3,3,626,0
+1480044359356,824,Login,200,OK,Weather Predictor Test Cases 1-3,text,true,,3599,4,4,518,0
+1480044359863,455,Login,200,OK,Weather Predictor Test Cases 1-4,text,true,,3597,4,4,455,0
+1480044359307,1098,Send Login,200,OK,Weather Predictor Test Cases 1-1,text,true,,3206,5,5,678,0
+1480044359487,1538,Send Login,200,OK,Weather Predictor Test Cases 1-2,text,true,,3206,6,6,918,0
+1480044360362,860,Login,200,OK,Weather Predictor Test Cases 1-5,text,true,,3597,6,6,860,0
+1480044360407,815,Get Weather,200,OK,Weather Predictor Test Cases 1-1,text,true,,4146,6,6,815,0
+1480044360321,1064,Send Login,200,OK,Weather Predictor Test Cases 1-4,text,true,,3206,7,7,739,0
+1480044360185,1200,Send Login,200,OK,Weather Predictor Test Cases 1-3,text,true,,3206,7,7,838,0
+1480044360859,669,Login,200,OK,Weather Predictor Test Cases 1-6,text,true,,3601,7,7,669,0
+1480044361388,443,Get Weather,200,OK,Weather Predictor Test Cases 1-4,text,true,,4146,7,7,443,0
+1480044361028,802,Get Weather,200,OK,Weather Predictor Test Cases 1-2,text,true,,4146,7,7,802,0
+1480044361358,723,Login,200,OK,Weather Predictor Test Cases 1-7,text,true,,3597,8,8,473,0
+1480044361390,792,Get Weather,200,OK,Weather Predictor Test Cases 1-3,text,true,,4146,8,8,792,0
+1480044361863,463,Login,200,OK,Weather Predictor Test Cases 1-8,text,true,,3601,8,8,463,0
+1480044361233,1098,Post Weather,200,OK,Weather Predictor Test Cases 1-1,text,true,,4648,8,8,632,0
+1480044362333,2,Debug Sampler,200,OK,Weather Predictor Test Cases 1-1,text,true,,2379,8,8,0,0
+1480044361225,1140,Send Login,200,OK,Weather Predictor Test Cases 1-5,text,true,,3206,8,8,639,0
+1480044361532,1347,Send Login,200,OK,Weather Predictor Test Cases 1-6,text,true,,3206,9,9,833,0
+1480044362362,581,Login,200,OK,Weather Predictor Test Cases 1-9,text,true,,3599,9,9,581,0
+1480044362371,651,Get Weather,200,OK,Weather Predictor Test Cases 1-5,text,true,,4146,9,9,651,0
+1480044362083,980,Send Login,200,OK,Weather Predictor Test Cases 1-7,text,true,,3206,9,9,712,0
+1480044363066,613,Get Weather,200,OK,Weather Predictor Test Cases 1-7,text,true,,4146,10,10,401,0
+1480044362329,1350,Send Login,200,OK,Weather Predictor Test Cases 1-8,text,true,,3206,10,10,701,0
+1480044362862,825,Login,200,OK,Weather Predictor Test Cases 1-10,text,true,,3597,10,10,825,0
+1480044363364,528,Login,200,OK,Weather Predictor Test Cases 1-11,text,true,,3603,11,11,315,0
+1480044362885,1013,Get Weather,200,OK,Weather Predictor Test Cases 1-6,text,true,,4146,11,11,1013,0
+1480044362946,1038,Send Login,200,OK,Weather Predictor Test Cases 1-9,text,true,,3206,11,11,739,0
+1480044363688,521,Get Weather,200,OK,Weather Predictor Test Cases 1-8,text,true,,4146,11,11,521,0
+1480044363864,911,Login,200,OK,Weather Predictor Test Cases 1-12,text,true,,3601,12,12,911,0
+1480044363692,1254,Send Login,200,OK,Weather Predictor Test Cases 1-10,text,true,,3206,13,13,801,0
+1480044363988,958,Get Weather,200,OK,Weather Predictor Test Cases 1-9,text,true,,4146,13,13,786,0
+1480044361832,3120,Post Weather,200,OK,Weather Predictor Test Cases 1-4,text,true,,3387,13,13,2120,0
+1480044364365,587,Login,200,OK,Weather Predictor Test Cases 1-13,text,true,,3599,13,13,587,0
+1480044364955,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-4,text,true,,2379,13,13,0,0
+1480044363895,1153,Send Login,200,OK,Weather Predictor Test Cases 1-11,text,true,,3206,12,12,879,0
+1480044364866,856,Login,200,OK,Weather Predictor Test Cases 1-14,text,true,,3599,13,13,487,0
+1480044365051,680,Get Weather,200,OK,Weather Predictor Test Cases 1-11,text,true,,4146,13,13,583,0
+1480044364950,796,Get Weather,200,OK,Weather Predictor Test Cases 1-10,text,true,,4146,13,13,796,0
+1480044361833,3978,Post Weather,200,OK,Weather Predictor Test Cases 1-2,text,true,,4638,13,13,2950,0
+1480044365813,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-2,text,true,,2380,13,13,0,0
+1480044362183,3691,Post Weather,200,OK,Weather Predictor Test Cases 1-3,text,true,,4638,13,13,2830,0
+1480044365877,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-3,text,true,,2380,13,13,0,0
+1480044364780,1145,Send Login,200,OK,Weather Predictor Test Cases 1-12,text,true,,3206,12,12,709,0
+1480044365367,776,Login,200,OK,Weather Predictor Test Cases 1-15,text,true,,3599,12,12,455,0
+1480044364955,1457,Send Login,200,OK,Weather Predictor Test Cases 1-13,text,true,,3206,13,13,851,0
+1480044363025,3391,Post Weather,200,OK,Weather Predictor Test Cases 1-5,text,true,,4638,13,13,2802,0
+1480044365867,551,Login,200,OK,Weather Predictor Test Cases 1-16,text,true,,3601,13,13,551,0
+1480044366418,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-5,text,true,,2380,13,13,0,0
+1480044365953,893,Get Weather,200,OK,Weather Predictor Test Cases 1-12,text,true,,4146,12,12,634,0
+1480044366368,748,Login,200,OK,Weather Predictor Test Cases 1-17,text,true,,3605,13,13,748,0
+1480044366150,1115,Send Login,200,OK,Weather Predictor Test Cases 1-15,text,true,,3206,13,13,700,0
+1480044366415,850,Get Weather,200,OK,Weather Predictor Test Cases 1-13,text,true,,4146,13,13,850,0
+1480044365725,1700,Send Login,200,OK,Weather Predictor Test Cases 1-14,text,true,,3206,14,14,698,0
+1480044366868,558,Login,200,OK,Weather Predictor Test Cases 1-18,text,true,,3597,14,14,558,0
+1480044366422,1210,Send Login,200,OK,Weather Predictor Test Cases 1-16,text,true,,3206,14,14,707,0
+1480044367283,940,Get Weather,200,OK,Weather Predictor Test Cases 1-15,text,true,,4146,15,15,940,0
+1480044367370,859,Login,200,OK,Weather Predictor Test Cases 1-19,text,true,,3603,15,15,859,0
+1480044367433,934,Get Weather,200,OK,Weather Predictor Test Cases 1-14,text,true,,4146,15,15,934,0
+1480044363901,4482,Post Weather,200,OK,Weather Predictor Test Cases 1-6,text,true,,3384,16,16,3607,0
+1480044368385,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-6,text,true,,2380,16,16,0,0
+1480044367119,1269,Send Login,200,OK,Weather Predictor Test Cases 1-17,text,true,,3206,15,15,877,0
+1480044363684,4705,Post Weather,200,OK,Weather Predictor Test Cases 1-7,text,true,,3387,15,15,3790,0
+1480044367868,523,Login,200,OK,Weather Predictor Test Cases 1-20,text,true,,3599,15,15,366,0
+1480044368407,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-7,text,true,,2378,15,15,0,0
+1480044367635,914,Get Weather,200,OK,Weather Predictor Test Cases 1-16,text,true,,4146,14,14,364,0
+1480044367430,1329,Send Login,200,OK,Weather Predictor Test Cases 1-18,text,true,,3206,14,14,803,0
+1480044368369,784,Login,200,OK,Weather Predictor Test Cases 1-21,text,true,,3599,15,15,464,0
+1480044364949,4424,Post Weather,200,OK,Weather Predictor Test Cases 1-9,text,true,,4638,16,16,3276,0
+1480044369375,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-9,text,true,,2380,16,16,0,0
+1480044368400,972,Get Weather,200,OK,Weather Predictor Test Cases 1-17,text,true,,4146,16,16,972,0
+1480044368761,741,Get Weather,200,OK,Weather Predictor Test Cases 1-18,text,true,,4146,15,15,741,0
+1480044364213,5337,Post Weather,200,OK,Weather Predictor Test Cases 1-8,text,true,,4638,15,15,4010,0
+1480044369552,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-8,text,true,,2380,15,15,0,0
+1480044368232,1572,Send Login,200,OK,Weather Predictor Test Cases 1-19,text,true,,3206,14,14,702,0
+1480044368871,1125,Login,200,OK,Weather Predictor Test Cases 1-22,text,true,,3599,15,15,683,0
+1480044368396,1606,Send Login,200,OK,Weather Predictor Test Cases 1-20,text,true,,3206,15,15,869,0
+1480044369373,625,Login,200,OK,Weather Predictor Test Cases 1-23,text,true,,3599,15,15,625,0
+1480044365750,4341,Post Weather,200,OK,Weather Predictor Test Cases 1-10,text,true,,4638,15,15,3580,0
+1480044366850,3249,Post Weather,200,OK,Weather Predictor Test Cases 1-12,text,true,,3385,15,15,2809,0
+1480044370099,3,Debug Sampler,200,OK,Weather Predictor Test Cases 1-10,text,true,,2380,15,15,0,0
+1480044370101,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-12,text,true,,2380,15,15,0,0
+1480044369157,2156,Send Login,200,OK,Weather Predictor Test Cases 1-21,text,true,,3206,15,15,849,0
+1480044369873,1531,Login,200,OK,Weather Predictor Test Cases 1-24,text,true,,3601,16,16,1531,0
+1480044365736,5709,Post Weather,200,OK,Weather Predictor Test Cases 1-11,text,true,,3385,16,16,4352,0
+1480044370372,1073,Login,200,OK,Weather Predictor Test Cases 1-25,text,true,,3601,16,16,1073,0
+1480044371447,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-11,text,true,,2379,16,16,0,0
+1480044367282,4168,Post Weather,200,OK,Weather Predictor Test Cases 1-13,text,true,,3379,15,15,3101,0
+1480044369806,1645,Get Weather,200,OK,Weather Predictor Test Cases 1-19,text,true,,4146,15,15,1645,0
+1480044370005,1449,Get Weather,200,OK,Weather Predictor Test Cases 1-20,text,true,,4146,15,15,1314,0
+1480044371462,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-13,text,true,,2381,15,15,0,0
+1480044370013,1619,Send Login,200,OK,Weather Predictor Test Cases 1-23,text,true,,3206,14,14,1303,0
+1480044370872,791,Login,200,OK,Weather Predictor Test Cases 1-26,text,true,,3599,14,14,791,0
+1480044371372,909,Login,200,OK,Weather Predictor Test Cases 1-27,text,true,,3599,15,15,909,0
+1480044371315,969,Get Weather,200,OK,Weather Predictor Test Cases 1-21,text,true,,4146,15,15,834,0
+1480044370001,2638,Send Login,200,OK,Weather Predictor Test Cases 1-22,text,true,,3206,16,16,640,0
+1480044369389,3484,Post Weather,200,OK,Weather Predictor Test Cases 1-17,text,true,,4638,16,16,2299,0
+1480044372875,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-17,text,true,,2380,16,16,0,0
+1480044371874,1119,Login,200,OK,Weather Predictor Test Cases 1-28,text,true,,3597,16,16,787,0
+1480044371633,1359,Get Weather,200,OK,Weather Predictor Test Cases 1-23,text,true,,4146,16,16,1197,0
+1480044368228,4865,Post Weather,200,OK,Weather Predictor Test Cases 1-15,text,true,,3386,16,16,3435,0
+1480044373097,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-15,text,true,,2381,16,16,0,0
+1480044369504,3607,Post Weather,200,OK,Weather Predictor Test Cases 1-18,text,true,,3384,15,15,2160,0
+1480044373114,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-18,text,true,,2381,15,15,0,0
+1480044371448,1848,Send Login,200,OK,Weather Predictor Test Cases 1-25,text,true,,3206,14,14,868,0
+1480044372374,1238,Login,200,OK,Weather Predictor Test Cases 1-29,text,true,,3597,15,15,722,0
+1480044368550,5274,Post Weather,200,OK,Weather Predictor Test Cases 1-16,text,true,,3386,15,15,3768,0
+1480044373825,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-16,text,true,,2381,15,15,0,0
+1480044371407,2491,Send Login,200,OK,Weather Predictor Test Cases 1-24,text,true,,3206,15,15,665,0
+1480044371666,2313,Send Login,200,OK,Weather Predictor Test Cases 1-26,text,true,,3206,15,15,1066,0
+1480044372642,1337,Get Weather,200,OK,Weather Predictor Test Cases 1-22,text,true,,4146,15,15,972,0
+1480044368374,5611,Post Weather,200,OK,Weather Predictor Test Cases 1-14,text,true,,3384,15,15,4146,0
+1480044372880,1105,Login,200,OK,Weather Predictor Test Cases 1-30,text,true,,3599,15,15,732,0
+1480044373997,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-14,text,true,,2380,15,15,0,0
+1480044373376,907,Login,200,OK,Weather Predictor Test Cases 1-31,text,true,,3603,14,14,609,0
+1480044373299,1128,Get Weather,200,OK,Weather Predictor Test Cases 1-25,text,true,,4146,15,15,1128,0
+1480044373876,551,Login,200,OK,Weather Predictor Test Cases 1-32,text,true,,3599,15,15,551,0
+1480044373900,742,Get Weather,200,OK,Weather Predictor Test Cases 1-24,text,true,,4146,15,15,327,0
+1480044373981,966,Get Weather,200,OK,Weather Predictor Test Cases 1-26,text,true,,4146,16,16,966,0
+1480044372284,2662,Send Login,200,OK,Weather Predictor Test Cases 1-27,text,true,,3206,16,16,1341,0
+1480044374380,880,Login,200,OK,Weather Predictor Test Cases 1-33,text,true,,3601,16,16,572,0
+1480044373617,1877,Send Login,200,OK,Weather Predictor Test Cases 1-29,text,true,,3206,17,17,892,0
+1480044374877,649,Login,200,OK,Weather Predictor Test Cases 1-34,text,true,,3597,17,17,561,0
+1480044374950,626,Get Weather,200,OK,Weather Predictor Test Cases 1-27,text,true,,4146,17,17,626,0
+1480044372997,2701,Send Login,200,OK,Weather Predictor Test Cases 1-28,text,true,,3206,17,17,985,0
+1480044373995,1926,Send Login,200,OK,Weather Predictor Test Cases 1-30,text,true,,3206,18,18,956,0
+1480044374431,1511,Send Login,200,OK,Weather Predictor Test Cases 1-32,text,true,,3206,18,18,837,0
+1480044375378,932,Login,200,OK,Weather Predictor Test Cases 1-35,text,true,,3597,18,18,638,0
+1480044375702,714,Get Weather,200,OK,Weather Predictor Test Cases 1-28,text,true,,4146,19,19,613,0
+1480044375502,922,Get Weather,200,OK,Weather Predictor Test Cases 1-29,text,true,,4146,19,19,922,0
+1480044371459,5048,Post Weather,200,OK,Weather Predictor Test Cases 1-19,text,true,,4638,19,19,4183,0
+1480044376508,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-19,text,true,,2380,19,19,0,0
+1480044374286,2390,Send Login,200,OK,Weather Predictor Test Cases 1-31,text,true,,3206,18,18,1237,0
+1480044375878,1261,Login,200,OK,Weather Predictor Test Cases 1-36,text,true,,3597,19,19,750,0
+1480044375945,1290,Get Weather,200,OK,Weather Predictor Test Cases 1-32,text,true,,4146,19,19,1290,0
+1480044375923,1312,Get Weather,200,OK,Weather Predictor Test Cases 1-30,text,true,,4146,19,19,1216,0
+1480044375529,1712,Send Login,200,OK,Weather Predictor Test Cases 1-34,text,true,,3206,19,19,948,0
+1480044376380,864,Login,200,OK,Weather Predictor Test Cases 1-37,text,true,,3603,19,19,864,0
+1480044375263,2026,Send Login,200,OK,Weather Predictor Test Cases 1-33,text,true,,3206,19,19,825,0
+1480044371465,5872,Post Weather,200,OK,Weather Predictor Test Cases 1-20,text,true,,3384,19,19,4763,0
+1480044376678,658,Get Weather,200,OK,Weather Predictor Test Cases 1-31,text,true,,4146,19,19,658,0
+1480044377341,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-20,text,true,,2380,19,19,0,0
+1480044376881,548,Login,200,OK,Weather Predictor Test Cases 1-38,text,true,,3599,19,19,548,0
+1480044376312,1389,Send Login,200,OK,Weather Predictor Test Cases 1-35,text,true,,3206,19,19,838,0
+1480044372998,5304,Post Weather,200,OK,Weather Predictor Test Cases 1-23,text,true,,4638,20,20,4141,0
+1480044378305,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-23,text,true,,2380,20,20,0,0
+1480044377291,1124,Get Weather,200,OK,Weather Predictor Test Cases 1-33,text,true,,4146,20,20,1124,0
+1480044377880,604,Login,200,OK,Weather Predictor Test Cases 1-40,text,true,,3597,20,20,604,0
+1480044377379,1135,Login,200,OK,Weather Predictor Test Cases 1-39,text,true,,3601,20,20,844,0
+1480044377243,1404,Get Weather,200,OK,Weather Predictor Test Cases 1-34,text,true,,4146,20,20,1098,0
+1480044372287,6441,Post Weather,200,OK,Weather Predictor Test Cases 1-21,text,true,,4638,20,20,5147,0
+1480044378731,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-21,text,true,,2381,20,20,0,0
+1480044377708,1110,Get Weather,200,OK,Weather Predictor Test Cases 1-35,text,true,,4146,19,19,1110,0
+1480044377150,1754,Send Login,200,OK,Weather Predictor Test Cases 1-36,text,true,,3206,20,20,677,0
+1480044373981,4949,Post Weather,200,OK,Weather Predictor Test Cases 1-22,text,true,,4638,20,20,3870,0
+1480044378932,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-22,text,true,,2380,20,20,0,0
+1480044378380,729,Login,200,OK,Weather Predictor Test Cases 1-41,text,true,,3597,19,19,439,0
+1480044377432,2120,Send Login,200,OK,Weather Predictor Test Cases 1-38,text,true,,3206,20,20,702,0
+1480044378881,1065,Login,200,OK,Weather Predictor Test Cases 1-42,text,true,,3599,21,21,671,0
+1480044374950,5002,Post Weather,200,OK,Weather Predictor Test Cases 1-26,text,true,,4638,21,21,3759,0
+1480044379954,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-26,text,true,,2380,21,21,0,0
+1480044374645,5410,Post Weather,200,OK,Weather Predictor Test Cases 1-24,text,true,,4638,20,20,4289,0
+1480044379382,672,Login,200,OK,Weather Predictor Test Cases 1-43,text,true,,3599,20,20,567,0
+1480044380057,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-24,text,true,,2381,20,20,0,0
+1480044378518,1564,Send Login,200,OK,Weather Predictor Test Cases 1-39,text,true,,3206,19,19,833,0
+1480044378488,1631,Send Login,200,OK,Weather Predictor Test Cases 1-40,text,true,,3206,19,19,1064,0
+1480044377247,2902,Send Login,200,OK,Weather Predictor Test Cases 1-37,text,true,,3206,19,19,1112,0
+1480044379556,649,Get Weather,200,OK,Weather Predictor Test Cases 1-38,text,true,,4146,19,19,649,0
+1480044378905,1331,Get Weather,200,OK,Weather Predictor Test Cases 1-36,text,true,,4146,19,19,1041,0
+1480044375579,5033,Post Weather,200,OK,Weather Predictor Test Cases 1-27,text,true,,4638,20,20,4080,0
+1480044380614,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-27,text,true,,2380,20,20,0,0
+1480044379882,813,Login,200,OK,Weather Predictor Test Cases 1-44,text,true,,3597,19,19,813,0
+1480044379112,1687,Send Login,200,OK,Weather Predictor Test Cases 1-41,text,true,,3206,19,19,835,0
+1480044374429,6420,Post Weather,200,OK,Weather Predictor Test Cases 1-25,text,true,,4638,19,19,5230,0
+1480044380850,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-25,text,true,,2381,19,19,0,0
+1480044380087,939,Get Weather,200,OK,Weather Predictor Test Cases 1-39,text,true,,4146,19,19,683,0
+1480044380153,962,Get Weather,200,OK,Weather Predictor Test Cases 1-37,text,true,,4146,19,19,962,0
+1480044380383,816,Login,200,OK,Weather Predictor Test Cases 1-45,text,true,,3601,19,19,816,0
+1480044380124,1238,Get Weather,200,OK,Weather Predictor Test Cases 1-40,text,true,,4146,19,19,929,0
+1480044380884,605,Login,200,OK,Weather Predictor Test Cases 1-46,text,true,,3605,20,20,409,0
+1480044379951,1628,Send Login,200,OK,Weather Predictor Test Cases 1-42,text,true,,3206,20,20,683,0
+1480044380802,1205,Get Weather,200,OK,Weather Predictor Test Cases 1-41,text,true,,4146,21,21,876,0
+1480044380058,2260,Send Login,200,OK,Weather Predictor Test Cases 1-43,text,true,,3206,21,21,1138,0
+1480044381384,1075,Login,200,OK,Weather Predictor Test Cases 1-47,text,true,,3601,22,22,623,0
+1480044376422,6128,Post Weather,200,OK,Weather Predictor Test Cases 1-28,text,true,,4638,22,22,5044,0
+1480044382551,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-28,text,true,,2381,22,22,0,0
+1480044376427,6167,Post Weather,200,OK,Weather Predictor Test Cases 1-29,text,true,,4638,21,21,4984,0
+1480044382603,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-29,text,true,,2380,21,21,0,0
+1480044381884,798,Login,200,OK,Weather Predictor Test Cases 1-48,text,true,,3599,20,20,670,0
+1480044377245,5497,Post Weather,200,OK,Weather Predictor Test Cases 1-30,text,true,,4638,20,20,4221,0
+1480044382743,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-30,text,true,,2381,20,20,0,0
+1480044377341,5445,Post Weather,200,OK,Weather Predictor Test Cases 1-31,text,true,,3387,19,19,4430,0
+1480044382788,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-31,text,true,,2381,19,19,0,0
+1480044380703,2129,Send Login,200,OK,Weather Predictor Test Cases 1-44,text,true,,3206,18,18,995,0
+1480044381581,1265,Get Weather,200,OK,Weather Predictor Test Cases 1-42,text,true,,4146,18,18,969,0
+1480044382384,602,Login,200,OK,Weather Predictor Test Cases 1-49,text,true,,3599,19,19,364,0
+1480044381201,2018,Send Login,200,OK,Weather Predictor Test Cases 1-45,text,true,,3206,19,19,1256,0
+1480044378418,4841,Post Weather,200,OK,Weather Predictor Test Cases 1-33,text,true,,4638,19,19,3588,0
+1480044383260,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-33,text,true,,2381,19,19,0,0
+1480044382327,1105,Get Weather,200,OK,Weather Predictor Test Cases 1-43,text,true,,4146,19,19,817,0
+1480044381492,2137,Send Login,200,OK,Weather Predictor Test Cases 1-46,text,true,,3206,19,19,1116,0
+1480044382886,1076,Login,200,OK,Weather Predictor Test Cases 1-50,text,true,,3603,20,20,752,0
+1480044378652,5385,Post Weather,200,OK,Weather Predictor Test Cases 1-34,text,true,,4638,20,20,3806,0
+1480044384039,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-34,text,true,,2381,20,20,0,0
+1480044383388,794,Login,200,OK,Weather Predictor Test Cases 1-51,text,true,,3599,19,19,794,0
+1480044382835,1364,Get Weather,200,OK,Weather Predictor Test Cases 1-44,text,true,,4146,19,19,1277,0
+1480044383221,1010,Get Weather,200,OK,Weather Predictor Test Cases 1-45,text,true,,4146,19,19,1010,0
+1480044377239,7020,Post Weather,200,OK,Weather Predictor Test Cases 1-32,text,true,,3379,19,19,5221,0
+1480044384267,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-32,text,true,,2380,19,19,0,0
+1480044382469,2116,Send Login,200,OK,Weather Predictor Test Cases 1-47,text,true,,3206,19,19,804,0
+1480044383632,992,Get Weather,200,OK,Weather Predictor Test Cases 1-46,text,true,,4146,19,19,788,0
+1480044383886,791,Login,200,OK,Weather Predictor Test Cases 1-52,text,true,,3605,19,19,505,0
+1480044382684,2066,Send Login,200,OK,Weather Predictor Test Cases 1-48,text,true,,3206,19,19,1055,0
+1480044384387,628,Login,200,OK,Weather Predictor Test Cases 1-53,text,true,,3603,20,20,628,0
+1480044382990,2089,Send Login,200,OK,Weather Predictor Test Cases 1-49,text,true,,3206,20,20,1252,0
+1480044380207,5358,Post Weather,200,OK,Weather Predictor Test Cases 1-38,text,true,,3384,21,21,4116,0
+1480044378823,6744,Post Weather,200,OK,Weather Predictor Test Cases 1-35,text,true,,3384,21,21,5485,0
+1480044385567,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-38,text,true,,2380,21,21,0,0
+1480044385622,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-35,text,true,,2381,20,20,0,0
+1480044384586,1218,Get Weather,200,OK,Weather Predictor Test Cases 1-47,text,true,,4146,19,19,1218,0
+1480044384751,1055,Get Weather,200,OK,Weather Predictor Test Cases 1-48,text,true,,4146,19,19,1055,0
+1480044384887,924,Login,200,OK,Weather Predictor Test Cases 1-54,text,true,,3597,19,19,924,0
+1480044384184,1801,Send Login,200,OK,Weather Predictor Test Cases 1-51,text,true,,3206,20,20,1057,0
+1480044383965,2029,Send Login,200,OK,Weather Predictor Test Cases 1-50,text,true,,3206,20,20,947,0
+1480044385388,656,Login,200,OK,Weather Predictor Test Cases 1-55,text,true,,3599,20,20,656,0
+1480044385084,1014,Get Weather,200,OK,Weather Predictor Test Cases 1-49,text,true,,4146,20,20,1014,0
+1480044380238,5976,Post Weather,200,OK,Weather Predictor Test Cases 1-36,text,true,,4638,20,20,5084,0
+1480044386218,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-36,text,true,,2380,20,20,0,0
+1480044384680,1753,Send Login,200,OK,Weather Predictor Test Cases 1-52,text,true,,3206,20,20,970,0
+1480044381364,5295,Post Weather,200,OK,Weather Predictor Test Cases 1-40,text,true,,3378,20,20,3957,0
+1480044386664,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-40,text,true,,2380,20,20,0,0
+1480044381031,5716,Post Weather,200,OK,Weather Predictor Test Cases 1-39,text,true,,3385,19,19,4622,0
+1480044386749,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-39,text,true,,2379,19,19,0,0
+1480044385887,1237,Login,200,OK,Weather Predictor Test Cases 1-56,text,true,,3599,19,19,859,0
+1480044385022,2107,Send Login,200,OK,Weather Predictor Test Cases 1-53,text,true,,3206,19,19,1035,0
+1480044386388,742,Login,200,OK,Weather Predictor Test Cases 1-57,text,true,,3601,19,19,742,0
+1480044385998,1134,Get Weather,200,OK,Weather Predictor Test Cases 1-50,text,true,,4146,19,19,1134,0
+1480044385987,1275,Get Weather,200,OK,Weather Predictor Test Cases 1-51,text,true,,4146,19,19,1275,0
+1480044381121,6257,Post Weather,200,OK,Weather Predictor Test Cases 1-37,text,true,,4638,19,19,5080,0
+1480044385813,1566,Send Login,200,OK,Weather Predictor Test Cases 1-54,text,true,,3206,19,19,922,0
+1480044387388,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-37,text,true,,2381,19,19,0,0
+1480044386889,563,Login,200,OK,Weather Predictor Test Cases 1-58,text,true,,3597,19,19,563,0
+1480044386435,1032,Get Weather,200,OK,Weather Predictor Test Cases 1-52,text,true,,4146,19,19,1032,0
+1480044386053,2219,Send Login,200,OK,Weather Predictor Test Cases 1-55,text,true,,3206,20,20,1208,0
+1480044387394,895,Login,200,OK,Weather Predictor Test Cases 1-59,text,true,,3599,20,20,615,0
+1480044382850,5611,Post Weather,200,OK,Weather Predictor Test Cases 1-42,text,true,,3384,21,21,4617,0
+1480044388463,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-42,text,true,,2381,21,21,0,0
+1480044387137,1381,Get Weather,200,OK,Weather Predictor Test Cases 1-53,text,true,,4146,20,20,1281,0
+1480044387386,1142,Get Weather,200,OK,Weather Predictor Test Cases 1-54,text,true,,4146,20,20,1057,0
+1480044387139,1465,Send Login,200,OK,Weather Predictor Test Cases 1-57,text,true,,3206,20,20,724,0
+1480044387890,745,Login,200,OK,Weather Predictor Test Cases 1-60,text,true,,3601,20,20,462,0
+1480044382010,6652,Post Weather,200,OK,Weather Predictor Test Cases 1-41,text,true,,3384,20,20,5652,0
+1480044388670,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-41,text,true,,2381,20,20,0,0
+1480044384234,4461,Post Weather,200,OK,Weather Predictor Test Cases 1-45,text,true,,3387,19,19,3639,0
+1480044388698,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-45,text,true,,2380,19,19,0,0
+1480044388390,947,Login,200,OK,Weather Predictor Test Cases 1-61,text,true,,3597,19,19,625,0
+1480044388275,1103,Get Weather,200,OK,Weather Predictor Test Cases 1-55,text,true,,4146,19,19,827,0
+1480044387455,2004,Send Login,200,OK,Weather Predictor Test Cases 1-58,text,true,,3206,20,20,988,0
+1480044388892,677,Login,200,OK,Weather Predictor Test Cases 1-62,text,true,,3599,20,20,677,0
+1480044387127,2489,Send Login,200,OK,Weather Predictor Test Cases 1-56,text,true,,3206,20,20,1019,0
+1480044388291,1392,Send Login,200,OK,Weather Predictor Test Cases 1-59,text,true,,3206,20,20,829,0
+1480044383434,6311,Post Weather,200,OK,Weather Predictor Test Cases 1-43,text,true,,4638,20,20,5463,0
+1480044389752,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-43,text,true,,2380,20,20,0,0
+1480044388611,1221,Get Weather,200,OK,Weather Predictor Test Cases 1-57,text,true,,4146,19,19,891,0
+1480044384627,5493,Post Weather,200,OK,Weather Predictor Test Cases 1-46,text,true,,4638,20,20,4516,0
+1480044390134,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-46,text,true,,2380,20,20,0,0
+1480044384202,5969,Post Weather,200,OK,Weather Predictor Test Cases 1-44,text,true,,3383,19,19,4694,0
+1480044390173,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-44,text,true,,2381,19,19,0,0
+1480044389391,801,Login,200,OK,Weather Predictor Test Cases 1-63,text,true,,3599,18,18,801,0
+1480044389624,1054,Get Weather,200,OK,Weather Predictor Test Cases 1-56,text,true,,4146,19,19,1054,0
+1480044388640,2271,Send Login,200,OK,Weather Predictor Test Cases 1-60,text,true,,3206,20,20,982,0
+1480044389891,1282,Login,200,OK,Weather Predictor Test Cases 1-64,text,true,,3599,20,20,864,0
+1480044389685,1487,Get Weather,200,OK,Weather Predictor Test Cases 1-59,text,true,,4146,20,20,923,0
+1480044389462,1714,Get Weather,200,OK,Weather Predictor Test Cases 1-58,text,true,,4146,20,20,1144,0
+1480044389340,1926,Send Login,200,OK,Weather Predictor Test Cases 1-61,text,true,,3206,20,20,1035,0
+1480044389579,1717,Send Login,200,OK,Weather Predictor Test Cases 1-62,text,true,,3206,20,20,1029,0
+1480044390393,903,Login,200,OK,Weather Predictor Test Cases 1-65,text,true,,3599,20,20,802,0
+1480044385813,5508,Post Weather,200,OK,Weather Predictor Test Cases 1-47,text,true,,3385,20,20,4854,0
+1480044391322,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-47,text,true,,2380,20,20,0,0
+1480044390892,1133,Login,200,OK,Weather Predictor Test Cases 1-66,text,true,,3601,21,21,811,0
+1480044390195,2122,Send Login,200,OK,Weather Predictor Test Cases 1-63,text,true,,3206,21,21,1012,0
+1480044387268,5638,Post Weather,200,OK,Weather Predictor Test Cases 1-51,text,true,,3384,23,23,4076,0
+1480044386100,6811,Post Weather,200,OK,Weather Predictor Test Cases 1-49,text,true,,3386,23,23,4809,0
+1480044392912,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-49,text,true,,2381,23,23,0,0
+1480044390913,2003,Get Weather,200,OK,Weather Predictor Test Cases 1-60,text,true,,4146,22,22,1467,0
+1480044391393,1528,Login,200,OK,Weather Predictor Test Cases 1-67,text,true,,3597,22,22,1440,0
+1480044385809,7116,Post Weather,200,OK,Weather Predictor Test Cases 1-48,text,true,,3379,22,22,5433,0
+1480044392927,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-48,text,true,,2381,22,22,0,0
+1480044391271,1659,Get Weather,200,OK,Weather Predictor Test Cases 1-61,text,true,,4146,21,21,1019,0
+1480044392933,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-51,text,true,,2381,21,21,0,0
+1480044387472,5616,Post Weather,200,OK,Weather Predictor Test Cases 1-52,text,true,,4638,20,20,4028,0
+1480044391893,1194,Login,200,OK,Weather Predictor Test Cases 1-68,text,true,,3599,20,20,1023,0
+1480044391299,1788,Get Weather,200,OK,Weather Predictor Test Cases 1-62,text,true,,4146,20,20,1788,0
+1480044393091,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-52,text,true,,2380,20,20,0,0
+1480044391179,1913,Send Login,200,OK,Weather Predictor Test Cases 1-64,text,true,,3206,20,20,654,0
+1480044387141,5950,Post Weather,200,OK,Weather Predictor Test Cases 1-50,text,true,,3386,20,20,4390,0
+1480044388521,4572,Post Weather,200,OK,Weather Predictor Test Cases 1-53,text,true,,4638,20,20,3315,0
+1480044393103,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-50,text,true,,2381,19,19,0,0
+1480044393103,2,Debug Sampler,200,OK,Weather Predictor Test Cases 1-53,text,true,,2380,19,19,0,0
+1480044392395,797,Login,200,OK,Weather Predictor Test Cases 1-69,text,true,,3603,17,17,698,0
+1480044392324,1607,Get Weather,200,OK,Weather Predictor Test Cases 1-63,text,true,,4146,19,19,1154,0
+1480044392894,1041,Login,200,OK,Weather Predictor Test Cases 1-70,text,true,,3603,19,19,662,0
+1480044393101,1069,Get Weather,200,OK,Weather Predictor Test Cases 1-64,text,true,,4146,19,19,1069,0
+1480044393395,791,Login,200,OK,Weather Predictor Test Cases 1-71,text,true,,3597,19,19,700,0
+1480044391301,2950,Send Login,200,OK,Weather Predictor Test Cases 1-65,text,true,,3206,19,19,838,0
+1480044392027,2595,Send Login,200,OK,Weather Predictor Test Cases 1-66,text,true,,3206,20,20,1172,0
+1480044393895,810,Login,200,OK,Weather Predictor Test Cases 1-72,text,true,,3597,20,20,527,0
+1480044390681,4120,Post Weather,200,OK,Weather Predictor Test Cases 1-56,text,true,,4638,20,20,2942,0
+1480044389381,5422,Post Weather,200,OK,Weather Predictor Test Cases 1-55,text,true,,4638,20,20,3887,0
+1480044394804,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-56,text,true,,2381,20,20,0,0
+1480044388531,6274,Post Weather,200,OK,Weather Predictor Test Cases 1-54,text,true,,4638,20,20,4737,0
+1480044392932,1877,Send Login,200,OK,Weather Predictor Test Cases 1-67,text,true,,3206,19,19,671,0
+1480044394817,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-54,text,true,,2380,19,19,0,0
+1480044394817,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-55,text,true,,2381,19,19,0,0
+1480044394253,1329,Get Weather,200,OK,Weather Predictor Test Cases 1-65,text,true,,4146,19,19,1051,0
+1480044394395,1187,Login,200,OK,Weather Predictor Test Cases 1-73,text,true,,3599,19,19,909,0
+1480044389834,5755,Post Weather,200,OK,Weather Predictor Test Cases 1-57,text,true,,4638,19,19,3928,0
+1480044395592,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-57,text,true,,2381,19,19,0,0
+1480044394624,1117,Get Weather,200,OK,Weather Predictor Test Cases 1-66,text,true,,4146,18,18,1116,0
+1480044393196,2575,Send Login,200,OK,Weather Predictor Test Cases 1-69,text,true,,3206,18,18,1021,0
+1480044393095,2682,Send Login,200,OK,Weather Predictor Test Cases 1-68,text,true,,3206,18,18,898,0
+1480044394896,936,Login,200,OK,Weather Predictor Test Cases 1-74,text,true,,3599,18,18,817,0
+1480044394819,1106,Get Weather,200,OK,Weather Predictor Test Cases 1-67,text,true,,4146,19,19,1013,0
+1480044395396,852,Login,200,OK,Weather Predictor Test Cases 1-75,text,true,,3597,19,19,577,0
+1480044393945,2396,Send Login,200,OK,Weather Predictor Test Cases 1-70,text,true,,3206,19,19,1163,0
+1480044395780,967,Get Weather,200,OK,Weather Predictor Test Cases 1-68,text,true,,4146,20,20,660,0
+1480044395896,852,Login,200,OK,Weather Predictor Test Cases 1-76,text,true,,3601,20,20,543,0
+1480044391182,5602,Post Weather,200,OK,Weather Predictor Test Cases 1-58,text,true,,3380,20,20,4468,0
+1480044396786,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-58,text,true,,2381,20,20,0,0
+1480044394190,2648,Send Login,200,OK,Weather Predictor Test Cases 1-71,text,true,,3206,19,19,1157,0
+1480044394707,2301,Send Login,200,OK,Weather Predictor Test Cases 1-72,text,true,,3206,20,20,1182,0
+1480044395773,1346,Get Weather,200,OK,Weather Predictor Test Cases 1-69,text,true,,4146,20,20,1185,0
+1480044396397,803,Login,200,OK,Weather Predictor Test Cases 1-77,text,true,,3599,20,20,503,0
+1480044396344,1328,Get Weather,200,OK,Weather Predictor Test Cases 1-70,text,true,,4146,21,21,958,0
+1480044395586,2093,Send Login,200,OK,Weather Predictor Test Cases 1-73,text,true,,3206,21,21,910,0
+1480044391180,6513,Post Weather,200,OK,Weather Predictor Test Cases 1-59,text,true,,3379,21,21,4942,0
+1480044397696,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-59,text,true,,2380,21,21,0,0
+1480044396844,1197,Get Weather,200,OK,Weather Predictor Test Cases 1-71,text,true,,4146,21,21,976,0
+1480044397398,709,Login,200,OK,Weather Predictor Test Cases 1-79,text,true,,3597,21,21,422,0
+1480044396898,1225,Login,200,OK,Weather Predictor Test Cases 1-78,text,true,,3601,21,21,916,0
+1480044395834,2289,Send Login,200,OK,Weather Predictor Test Cases 1-74,text,true,,3206,21,21,1040,0
+1480044396753,1595,Send Login,200,OK,Weather Predictor Test Cases 1-76,text,true,,3206,21,21,1069,0
+1480044397009,1339,Get Weather,200,OK,Weather Predictor Test Cases 1-72,text,true,,4146,21,21,1248,0
+1480044397682,688,Get Weather,200,OK,Weather Predictor Test Cases 1-73,text,true,,4146,21,21,577,0
+1480044396251,2433,Send Login,200,OK,Weather Predictor Test Cases 1-75,text,true,,3206,22,22,1153,0
+1480044397898,1048,Login,200,OK,Weather Predictor Test Cases 1-80,text,true,,3599,23,23,785,0
+1480044393943,5159,Post Weather,200,OK,Weather Predictor Test Cases 1-63,text,true,,3386,23,23,4097,0
+1480044399103,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-63,text,true,,2381,23,23,0,0
+1480044393095,6015,Post Weather,200,OK,Weather Predictor Test Cases 1-62,text,true,,4638,22,22,4105,0
+1480044399112,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-62,text,true,,2381,22,22,0,0
+1480044392932,6196,Post Weather,200,OK,Weather Predictor Test Cases 1-61,text,true,,4638,21,21,5108,0
+1480044399130,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-61,text,true,,2381,21,21,0,0
+1480044398399,832,Login,200,OK,Weather Predictor Test Cases 1-81,text,true,,3599,20,20,832,0
+1480044398686,731,Get Weather,200,OK,Weather Predictor Test Cases 1-75,text,true,,4146,21,21,649,0
+1480044398351,1071,Get Weather,200,OK,Weather Predictor Test Cases 1-76,text,true,,4146,21,21,1071,0
+1480044397203,2263,Send Login,200,OK,Weather Predictor Test Cases 1-77,text,true,,3206,21,21,1144,0
+1480044398127,1346,Get Weather,200,OK,Weather Predictor Test Cases 1-74,text,true,,4146,21,21,1127,0
+1480044398899,1241,Login,200,OK,Weather Predictor Test Cases 1-82,text,true,,3599,22,22,910,0
+1480044398118,2022,Send Login,200,OK,Weather Predictor Test Cases 1-79,text,true,,3206,22,22,848,0
+1480044399400,742,Login,200,OK,Weather Predictor Test Cases 1-83,text,true,,3605,22,22,742,0
+1480044395743,4784,Post Weather,200,OK,Weather Predictor Test Cases 1-66,text,true,,4638,23,23,3973,0
+1480044400530,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-66,text,true,,2380,23,23,0,0
+1480044399469,1058,Get Weather,200,OK,Weather Predictor Test Cases 1-77,text,true,,4146,23,23,1058,0
+1480044392924,7749,Post Weather,200,OK,Weather Predictor Test Cases 1-60,text,true,,3383,22,22,6317,0
+1480044398125,2548,Send Login,200,OK,Weather Predictor Test Cases 1-78,text,true,,3206,22,22,1106,0
+1480044400676,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-60,text,true,,2381,22,22,0,0
+1480044394173,6532,Post Weather,200,OK,Weather Predictor Test Cases 1-64,text,true,,4638,21,21,5236,0
+1480044400708,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-64,text,true,,2380,21,21,0,0
+1480044399900,1249,Login,200,OK,Weather Predictor Test Cases 1-84,text,true,,3599,21,21,768,0
+1480044399234,2024,Send Login,200,OK,Weather Predictor Test Cases 1-81,text,true,,3206,21,21,1092,0
+1480044400400,858,Login,200,OK,Weather Predictor Test Cases 1-85,text,true,,3597,21,21,858,0
+1480044398949,2395,Send Login,200,OK,Weather Predictor Test Cases 1-80,text,true,,3206,21,21,960,0
+1480044400676,680,Get Weather,200,OK,Weather Predictor Test Cases 1-78,text,true,,4146,21,21,589,0
+1480044400155,1226,Get Weather,200,OK,Weather Predictor Test Cases 1-79,text,true,,4146,21,21,1226,0
+1480044400901,848,Login,200,OK,Weather Predictor Test Cases 1-86,text,true,,3599,22,22,557,0
+1480044400152,1821,Send Login,200,OK,Weather Predictor Test Cases 1-83,text,true,,3206,23,23,1114,0
+1480044401264,957,Get Weather,200,OK,Weather Predictor Test Cases 1-81,text,true,,4146,23,23,957,0
+1480044401401,959,Login,200,OK,Weather Predictor Test Cases 1-87,text,true,,3601,23,23,661,0
+1480044395928,6476,Post Weather,200,OK,Weather Predictor Test Cases 1-67,text,true,,3384,24,24,5226,0
+1480044402405,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-67,text,true,,2381,24,24,0,0
+1480044395585,6973,Post Weather,200,OK,Weather Predictor Test Cases 1-65,text,true,,3379,23,23,5566,0
+1480044402559,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-65,text,true,,2381,23,23,0,0
+1480044401346,1216,Get Weather,200,OK,Weather Predictor Test Cases 1-80,text,true,,4146,22,22,968,0
+1480044396750,5838,Post Weather,200,OK,Weather Predictor Test Cases 1-68,text,true,,4638,22,22,4543,0
+1480044402594,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-68,text,true,,2379,22,22,0,0
+1480044400144,2503,Send Login,200,OK,Weather Predictor Test Cases 1-82,text,true,,3206,21,21,1006,0
+1480044397121,5607,Post Weather,200,OK,Weather Predictor Test Cases 1-69,text,true,,3384,21,21,4285,0
+1480044402729,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-69,text,true,,2381,21,21,0,0
+1480044401901,922,Login,200,OK,Weather Predictor Test Cases 1-88,text,true,,3599,20,20,922,0
+1480044401154,2043,Send Login,200,OK,Weather Predictor Test Cases 1-84,text,true,,3206,21,21,729,0
+1480044401974,1299,Get Weather,200,OK,Weather Predictor Test Cases 1-83,text,true,,4146,21,21,1299,0
+1480044402402,881,Login,200,OK,Weather Predictor Test Cases 1-89,text,true,,3601,21,21,588,0
+1480044402900,731,Login,200,OK,Weather Predictor Test Cases 1-90,text,true,,3599,22,22,448,0
+1480044401268,2405,Send Login,200,OK,Weather Predictor Test Cases 1-85,text,true,,3206,22,22,860,0
+1480044398352,5380,Post Weather,200,OK,Weather Predictor Test Cases 1-72,text,true,,4638,22,22,3870,0
+1480044403735,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-72,text,true,,2381,22,22,0,0
+1480044402648,1221,Get Weather,200,OK,Weather Predictor Test Cases 1-82,text,true,,4146,21,21,1220,0
+1480044399478,4480,Post Weather,200,OK,Weather Predictor Test Cases 1-74,text,true,,4638,22,22,3447,0
+1480044403960,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-74,text,true,,2380,22,22,0,0
+1480044401752,2266,Send Login,200,OK,Weather Predictor Test Cases 1-86,text,true,,3206,21,21,1098,0
+1480044403401,924,Login,200,OK,Weather Predictor Test Cases 1-91,text,true,,3599,21,21,468,0
+1480044399420,5312,Post Weather,200,OK,Weather Predictor Test Cases 1-75,text,true,,4638,22,22,3778,0
+1480044404733,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-75,text,true,,2380,22,22,0,0
+1480044403675,1134,Get Weather,200,OK,Weather Predictor Test Cases 1-85,text,true,,4146,21,21,713,0
+1480044403201,1641,Get Weather,200,OK,Weather Predictor Test Cases 1-84,text,true,,4146,21,21,1511,0
+1480044402361,2482,Send Login,200,OK,Weather Predictor Test Cases 1-87,text,true,,3206,21,21,1044,0
+1480044403901,947,Login,200,OK,Weather Predictor Test Cases 1-92,text,true,,3599,21,21,947,0
+1480044399425,5441,Post Weather,200,OK,Weather Predictor Test Cases 1-76,text,true,,4638,21,21,3632,0
+1480044404870,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-76,text,true,,2381,21,21,0,0
+1480044397675,7197,Post Weather,200,OK,Weather Predictor Test Cases 1-70,text,true,,3379,21,21,5793,0
+1480044404874,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-70,text,true,,2380,20,20,0,0
+1480044404401,536,Login,200,OK,Weather Predictor Test Cases 1-93,text,true,,3601,20,20,441,0
+1480044398373,6975,Post Weather,200,OK,Weather Predictor Test Cases 1-73,text,true,,3386,20,20,5572,0
+1480044404020,1335,Get Weather,200,OK,Weather Predictor Test Cases 1-86,text,true,,4146,20,20,1056,0
+1480044405362,6,Debug Sampler,200,OK,Weather Predictor Test Cases 1-73,text,true,,2381,20,20,0,0
+1480044402825,2612,Send Login,200,OK,Weather Predictor Test Cases 1-88,text,true,,3206,20,20,1063,0
+1480044398049,7425,Post Weather,200,OK,Weather Predictor Test Cases 1-71,text,true,,4638,20,20,5624,0
+1480044405476,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-71,text,true,,2380,20,20,0,0
+1480044404902,994,Login,200,OK,Weather Predictor Test Cases 1-94,text,true,,3599,19,19,611,0
+1480044403285,2808,Send Login,200,OK,Weather Predictor Test Cases 1-89,text,true,,3206,20,20,1086,0
+1480044404846,1324,Get Weather,200,OK,Weather Predictor Test Cases 1-87,text,true,,4146,20,20,1323,0
+1480044403634,2702,Send Login,200,OK,Weather Predictor Test Cases 1-90,text,true,,3206,20,20,987,0
+1480044405402,1115,Login,200,OK,Weather Predictor Test Cases 1-95,text,true,,3599,21,21,832,0
+1480044400535,6117,Post Weather,200,OK,Weather Predictor Test Cases 1-77,text,true,,3380,21,21,5109,0
+1480044406654,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-77,text,true,,2380,21,21,0,0
+1480044405903,802,Login,200,OK,Weather Predictor Test Cases 1-96,text,true,,3599,20,20,802,0
+1480044405439,1410,Get Weather,200,OK,Weather Predictor Test Cases 1-88,text,true,,4146,20,20,1137,0
+1480044404336,2560,Send Login,200,OK,Weather Predictor Test Cases 1-91,text,true,,3206,20,20,1302,0
+1480044406341,789,Get Weather,200,OK,Weather Predictor Test Cases 1-90,text,true,,4146,21,21,484,0
+1480044406095,1035,Get Weather,200,OK,Weather Predictor Test Cases 1-89,text,true,,4146,21,21,731,0
+1480044404941,2197,Send Login,200,OK,Weather Predictor Test Cases 1-93,text,true,,3206,21,21,1003,0
+1480044406404,1021,Login,200,OK,Weather Predictor Test Cases 1-97,text,true,,3599,22,22,734,0
+1480044404851,2737,Send Login,200,OK,Weather Predictor Test Cases 1-92,text,true,,3206,22,22,1365,0
+1480044406904,734,Login,200,OK,Weather Predictor Test Cases 1-98,text,true,,3603,22,22,734,0
+1480044406899,804,Get Weather,200,OK,Weather Predictor Test Cases 1-91,text,true,,4146,22,22,804,0
+1480044405908,1940,Send Login,200,OK,Weather Predictor Test Cases 1-94,text,true,,3206,22,22,771,0
+1480044401359,6751,Post Weather,200,OK,Weather Predictor Test Cases 1-78,text,true,,4638,23,23,5551,0
+1480044408112,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-78,text,true,,2381,23,23,0,0
+1480044407142,984,Get Weather,200,OK,Weather Predictor Test Cases 1-93,text,true,,4146,23,23,706,0
+1480044407406,817,Login,200,OK,Weather Predictor Test Cases 1-99,text,true,,3599,22,22,533,0
+1480044407591,921,Get Weather,200,OK,Weather Predictor Test Cases 1-92,text,true,,4146,22,22,920,0
+1480044406709,2327,Send Login,200,OK,Weather Predictor Test Cases 1-96,text,true,,3206,22,22,998,0
+1480044407909,1126,Login,200,OK,Weather Predictor Test Cases 1-100,text,true,,3601,22,22,690,0
+1480044401386,7655,Post Weather,200,OK,Weather Predictor Test Cases 1-79,text,true,,4638,22,22,5756,0
+1480044409042,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-79,text,true,,2381,22,22,0,0
+1480044407853,1192,Get Weather,200,OK,Weather Predictor Test Cases 1-94,text,true,,4146,21,21,885,0
+1480044402222,6836,Post Weather,200,OK,Weather Predictor Test Cases 1-81,text,true,,3384,21,21,5609,0
+1480044409069,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-81,text,true,,2381,21,21,0,0
+1480044406520,2667,Send Login,200,OK,Weather Predictor Test Cases 1-95,text,true,,3206,20,20,836,0
+1480044407428,1837,Send Login,200,OK,Weather Predictor Test Cases 1-97,text,true,,3206,20,20,920,0
+1480044407640,1840,Send Login,200,OK,Weather Predictor Test Cases 1-98,text,true,,3206,20,20,985,0
+1480044402567,7015,Post Weather,200,OK,Weather Predictor Test Cases 1-80,text,true,,3386,20,20,6159,0
+1480044409584,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-80,text,true,,2381,20,20,0,0
+1480044409196,546,Get Weather,200,OK,Weather Predictor Test Cases 1-95,text,true,,4146,19,19,453,0
+1480044409267,496,Get Weather,200,OK,Weather Predictor Test Cases 1-97,text,true,,4146,19,19,496,0
+1480044409044,788,Get Weather,200,OK,Weather Predictor Test Cases 1-96,text,true,,4146,19,19,788,0
+1480044408226,1779,Send Login,200,OK,Weather Predictor Test Cases 1-99,text,true,,3206,19,19,1079,0
+1480044409482,612,Get Weather,200,OK,Weather Predictor Test Cases 1-98,text,true,,4146,19,19,612,0
+1480044405359,4786,Post Weather,200,OK,Weather Predictor Test Cases 1-86,text,true,,4638,19,19,4126,0
+1480044410147,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-86,text,true,,2381,19,19,0,0
+1480044409040,1166,Send Login,200,OK,Weather Predictor Test Cases 1-100,text,true,,3206,18,18,676,0
+1480044403877,6340,Post Weather,200,OK,Weather Predictor Test Cases 1-82,text,true,,4638,18,18,5595,0
+1480044410219,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-82,text,true,,2381,18,18,0,0
+1480044403275,7013,Post Weather,200,OK,Weather Predictor Test Cases 1-83,text,true,,3378,17,17,6065,0
+1480044410290,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-83,text,true,,2381,17,17,0,0
+1480044410007,347,Get Weather,200,OK,Weather Predictor Test Cases 1-99,text,true,,4146,16,16,347,0
+1480044410208,362,Get Weather,200,OK,Weather Predictor Test Cases 1-100,text,true,,4146,16,16,362,0
+1480044404847,5954,Post Weather,200,OK,Weather Predictor Test Cases 1-84,text,true,,4638,16,16,5594,0
+1480044410804,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-84,text,true,,2380,16,16,0,0
+1480044407135,3732,Post Weather,200,OK,Weather Predictor Test Cases 1-90,text,true,,4638,15,15,3307,0
+1480044410871,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-90,text,true,,2381,15,15,0,0
+1480044406851,4129,Post Weather,200,OK,Weather Predictor Test Cases 1-88,text,true,,3384,14,14,3719,0
+1480044410990,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-88,text,true,,2381,14,14,0,0
+1480044404820,6212,Post Weather,200,OK,Weather Predictor Test Cases 1-85,text,true,,3384,13,13,5753,0
+1480044411033,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-85,text,true,,2381,13,13,0,0
+1480044406172,4912,Post Weather,200,OK,Weather Predictor Test Cases 1-87,text,true,,3385,12,12,4410,0
+1480044411089,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-87,text,true,,2380,12,12,0,0
+1480044407135,4035,Post Weather,200,OK,Weather Predictor Test Cases 1-89,text,true,,4638,11,11,3630,0
+1480044411172,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-89,text,true,,2381,11,11,0,0
+1480044409050,2389,Post Weather,200,OK,Weather Predictor Test Cases 1-94,text,true,,4638,10,10,2034,0
+1480044411441,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-94,text,true,,2381,10,10,0,0
+1480044407706,4142,Post Weather,200,OK,Weather Predictor Test Cases 1-91,text,true,,4638,9,9,3801,0
+1480044411851,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-91,text,true,,2380,9,9,0,0
+1480044409834,2160,Post Weather,200,OK,Weather Predictor Test Cases 1-96,text,true,,3379,8,8,1823,0
+1480044411999,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-96,text,true,,2380,8,8,0,0
+1480044409768,2363,Post Weather,200,OK,Weather Predictor Test Cases 1-97,text,true,,3379,7,7,2019,0
+1480044412136,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-97,text,true,,2381,7,7,0,0
+1480044408136,4081,Post Weather,200,OK,Weather Predictor Test Cases 1-93,text,true,,3380,6,6,3663,0
+1480044412219,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-93,text,true,,2380,6,6,0,0
+1480044410098,2218,Post Weather,200,OK,Weather Predictor Test Cases 1-98,text,true,,4638,5,5,1844,0
+1480044408519,3797,Post Weather,200,OK,Weather Predictor Test Cases 1-92,text,true,,3384,5,5,3356,0
+1480044412318,1,Debug Sampler,200,OK,Weather Predictor Test Cases 1-98,text,true,,2381,5,5,0,0
+1480044412326,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-92,text,true,,2381,4,4,0,0
+1480044409745,2612,Post Weather,200,OK,Weather Predictor Test Cases 1-95,text,true,,4638,3,3,2192,0
+1480044412360,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-95,text,true,,2380,3,3,0,0
+1480044410573,2158,Post Weather,200,OK,Weather Predictor Test Cases 1-100,text,true,,3384,2,2,1768,0
+1480044412733,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-100,text,true,,2382,2,2,0,0
+1480044410357,2940,Post Weather,200,OK,Weather Predictor Test Cases 1-99,text,true,,4638,1,1,2568,0
+1480044413298,0,Debug Sampler,200,OK,Weather Predictor Test Cases 1-99,text,true,,2380,1,1,0,0
