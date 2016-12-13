@@ -1,6 +1,7 @@
 var request = require('request');
 var uuid = require('node-uuid');
 var async = require('async');
+var jobs = require('./jobs');
 
 exports.getWeather = (req, res) => {
   res.render('weather', {
@@ -21,6 +22,9 @@ exports.postWeather = (req, res, next) => {
   
   var time = req.body.time.split(':').join('').concat('00');
   
+  var mesosReq = 'ingestor_job';
+  var jobName = 'team_aviato_' + new Date().valueOf();
+      
   var userRequest = {};
   userRequest.userName = req.user.email,
   userRequest.stationName = req.body.station;
@@ -145,10 +149,38 @@ exports.postWeather = (req, res, next) => {
       console.log(urlRunForecast);
       callback(null, 'Success');  
     }],
-    f1: ['last', function(results, callback){
-      console.log('Connecting to Ingestor microservice');
+    f0: ['last', function(results, callback){
+      console.log('Connecting to Ingestor microservice - Mesos Endpoint');
+      console.log('Giving job name: ' + jobName);
       request({ // Request to the Data Ingestor
         url: urlDataIngestor,
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain'},
+        body: jobName
+        },
+        function(error, response, body){
+          if(error) {
+            console.log('Generic error while connecting to the data ingestor Mesos endpoint');
+            console.log(error);
+            requestSuccess = -1;
+            callback(error, 'Error while connecting to the Ingestor Mesos Endpoint.');
+          }
+          else if(response.statusCode != 200){
+            console.log('There was an error connecting to the Data Ingestor Mesos Endpoint. Response: ' + response.statusCode);
+            requestSuccess = 1;
+            callback(new Error(), 'Non 200 while connecting to the Ingestor Mesos Endpoint.');
+          }
+          else if (response.statusCode == 200){
+            console.log('Response from Data Ingestor Mesos Endpoint is: ' + response.statusCode);
+            diResponse = response.body;
+            callback(null, 'Success');
+          }
+      });
+    }],
+    f1: ['f0', function(results, callback){
+      console.log('Connecting to Ingestor microservice');
+      request({ // Request to the Data Ingestor
+        url: urlDataIngestor.slice(0, -11) + 'url',
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         json: userRequest
@@ -168,6 +200,7 @@ exports.postWeather = (req, res, next) => {
           else if (response.statusCode == 200){
             console.log('Response from Data Ingestor is: ' + response.statusCode);
             diResponse = response.body;
+            console.log(diResponse);
             callback(null, 'Success');
           }
       });
@@ -289,17 +322,19 @@ exports.postWeather = (req, res, next) => {
     
     if(err){
       console.log('Detected an error.');
-      req.flash('info', {msg: 'Storm detection was not successful.'});
+      req.flash('info', {msg: 'There was an error in the process.'});
       res.redirect('/weather');
     }
-    else if(results['f5'] == 'no'){
-      req.flash('success', {msg: 'No storm is predicted.'});
-      res.redirect('/weather');  
-    }
+    //else if(results['f5'] == 'no'){
+    //  req.flash('success', {msg: 'No storm is predicted.'});
+    //  res.redirect('/weather');  
+    //}
     else{
-      req.flash('success', {msg: 'Storm detection was successful.'});
-      req.session.forecastData = rfResponse;
-      res.redirect('/results');  
+      jobs.addJob(req.user.email, jobName);
+      console.log('Just added into Mongo');
+      req.flash('success', {msg: 'Job was successfully created.'});
+      //req.session.forecastData = rfResponse;
+      res.redirect('/weather');  
     }
     //res.redirect('/weather');
   });
