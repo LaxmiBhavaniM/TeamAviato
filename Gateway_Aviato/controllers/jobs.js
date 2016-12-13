@@ -6,7 +6,7 @@ exports.getJobs = (req, res) => {
   // Using logic from: http://stackoverflow.com/a/30485963 to store data from request using emitter
  
   var results = new EventEmitter();
-
+  var pageData = {};
   var myReqObject = {};
   myReqObject.userName = req.user.email;
 
@@ -16,7 +16,7 @@ exports.getJobs = (req, res) => {
     // docs is an array
     var arr = [];
     if(docs.length <= 0){
-      res.render('jobs', { layout : 'jobs', resultData: {} });
+      res.render('jobs', { layout : 'jobs', resultData: pageData });
       return;
     }
     listOfJobs = listOfJobs + '"' + docs[0]['jobName'] + '"'
