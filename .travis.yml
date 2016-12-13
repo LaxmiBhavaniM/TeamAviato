@@ -1,7 +1,7 @@
 language: java
 branches:
   only:
-    - api-dataingestor-milestone4
+    - api-ingestor-milestone4
 jdk:
   - oraclejdk8
 
@@ -40,7 +40,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-dataingestor-milestone4
+      branch: api-ingestor-milestone4
       
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -53,7 +53,7 @@ deploy:
     region: us-east-2
     skip_cleanup: true
     on:
-      branch: api-dataingestor-milestone4
+      branch: api-ingestor-milestone4
 
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -65,7 +65,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-dataingestor-milestone4
+      branch: api-ingestor-milestone4
       
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -78,7 +78,7 @@ deploy:
     region: us-east-2
     skip_cleanup: true
     on:
-      branch: api-dataingestor-milestone4
+      branch: api-ingestor-milestone4
       
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -90,7 +90,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: api-dataingestor-milestone4
+      branch: api-ingestor-milestone4
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -103,4 +103,4 @@ deploy:
     region: us-west-2
     skip_cleanup: true
     on:
-      branch: api-dataingestor-milestone4
+      branch: api-ingestor-milestone4
