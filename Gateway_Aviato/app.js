@@ -32,7 +32,8 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const weatherController = require('./controllers/weather');
 const historyController = require('./controllers/history');
-const resultsController = require('./controllers/results')
+const resultsController = require('./controllers/results');
+const jobsController = require('./controllers/jobs');
 /**
  * API keys and Passport configuration.
  */
@@ -125,6 +126,7 @@ app.post('/signup', userController.postSignup);
 app.get('/weather', passportConfig.isAuthenticated, weatherController.getWeather);
 app.post('/weather', passportConfig.isAuthenticated, weatherController.postWeather);
 app.get('/history', passportConfig.isAuthenticated, historyController.getHistory);
+app.get('/jobs', passportConfig.isAuthenticated, jobsController.getJobs);
 app.get('/results', passportConfig.isAuthenticated, resultsController.getResults);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
 app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
