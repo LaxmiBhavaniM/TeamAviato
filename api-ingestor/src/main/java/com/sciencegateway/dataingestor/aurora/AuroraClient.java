@@ -35,7 +35,7 @@ public class AuroraClient {
         processes.add(proc2);
         processes.add(proc0);
 
-        ResourceBean resources = new ResourceBean(0.2, 200, 200);
+        ResourceBean resources = new ResourceBean(0.2, 400, 400);
 
         TaskConfigBean taskConfig = new TaskConfigBean("data_ingestor_task", processes, resources);
         JobConfigBean jobConfig = new JobConfigBean(jobKey, owner, taskConfig, "example");
