@@ -126,6 +126,7 @@ app.post('/signup', userController.postSignup);
 app.get('/weather', passportConfig.isAuthenticated, weatherController.getWeather);
 app.post('/weather', passportConfig.isAuthenticated, weatherController.postWeather);
 app.get('/history', passportConfig.isAuthenticated, historyController.getHistory);
+app.get('/job/:name',  jobsController.submitJob);
 app.get('/jobs', passportConfig.isAuthenticated, jobsController.getJobs);
 app.get('/results', passportConfig.isAuthenticated, resultsController.getResults);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
