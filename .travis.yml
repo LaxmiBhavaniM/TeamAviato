@@ -11,13 +11,13 @@ services:
   - docker
 
 install:
-  - cd "api-ingestor" && mvn clean install -DskipTests=true
+  - cd "api-ingestor" && mvn clean install --quiet -DskipTests=true
   - docker build -t tilaks/dataingestor .
   - docker ps -a
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push tilaks/dataingestor
 
-script: mvn clean install -DskipTests=true
+script: mvn clean install --quiet -DskipTests=true
 
 after-success:
   - cd /home/ec2-user/ingestor-microservice
