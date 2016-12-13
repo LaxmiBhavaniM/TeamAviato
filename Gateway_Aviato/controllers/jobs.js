@@ -15,6 +15,10 @@ exports.getJobs = (req, res) => {
   Job.find({ 'user': req.user.email }, function (err, docs) {
     // docs is an array
     var arr = [];
+    if(docs.length <= 0){
+      res.render('jobs', { layout : 'jobs', resultData: {} });
+      return;
+    }
     listOfJobs = listOfJobs + '"' + docs[0]['jobName'] + '"'
     for(i = 1; i < docs.length; i++){
       //console.log(userJobs[i]['jobName']);
