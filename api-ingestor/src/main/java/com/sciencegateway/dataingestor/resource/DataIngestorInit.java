@@ -41,7 +41,7 @@ public class DataIngestorInit implements ServletContextListener
 							whatismyip.openStream()));
 	
 			ip = in.readLine(); //you get the IP as a String
-			System.out.println(ip);
+			System.out.println("This is my IP: " + ip);
     	}
     	catch (Exception exception)
     	{
@@ -50,7 +50,7 @@ public class DataIngestorInit implements ServletContextListener
     	
         this.context = event.getServletContext();
         logger.info("Registering Service...");
-    	String serviceURI = "http://"+ip+":9000/dataingestor/webapi/service/url";
+    	String serviceURI = "http://"+ip+":9000/dataingestor/webapi/service/runingestor";
     	String serviceName = "dataIngestor";
     	int port = 9000;
     	

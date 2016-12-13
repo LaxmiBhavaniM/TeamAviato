@@ -3,6 +3,7 @@ package com.sciencegateway.dataingestor.resource;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.ParseException;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -23,6 +24,9 @@ import org.glassfish.jersey.client.ClientProperties;
 import org.json.JSONObject;
 
 import com.sciencegateway.dataingestor.POJO.URLObjects;
+import com.sciencegateway.dataingestor.aurora.AuroraClient;
+import com.sciencegateway.dataingestor.aurora.bean.JobResultsBean;
+import com.sciencegateway.dataingestor.aurora.bean.ResponseBean;
 import com.sciencegateway.dataingestor.service.URLConverter;
 
 @Path("/service")
@@ -40,6 +44,35 @@ public class DataIngestorResource
 	{
 		return "Got it!";
 	}
+	
+    @POST
+	@Path("/runingestor")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseBean generateurl(String jobName) {
+        ResponseBean response = null;
+        try {
+            response = AuroraClient.createJob(jobName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+	
+    @POST
+	@Path("/getJobDetails")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<JobResultsBean> getJobDetails(List<String> jobNames) {
+        for(String s : jobNames){
+        	System.out.println(s);
+        }
+    	try {
+            return AuroraClient.getJobDetailsList(jobNames);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 	
 	@POST
 	@Path("/url")
