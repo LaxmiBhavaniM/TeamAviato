@@ -6,7 +6,7 @@ block content
 
   -var ob = JSON.parse(resultData)
   div
-    table
+    table(border=1)
       tbody
         for object in ob
           for object2 in object.taskResultsBeans
@@ -15,5 +15,5 @@ block content
               td= object2.scheduleStatus
               td
                 a(href='/job/'+object.jobName) Resubmit
-              for object3 in object2.imageUrls
-                td= object3
+                for object3 in object2.imageUrls
+                  img(src=object3 height=200 width=auto)
