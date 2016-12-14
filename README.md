@@ -8,7 +8,7 @@ Team Aviato -
  * Prajna Cheryl Peters (pcpeters)
  * Sneha Tilak (tilaks26)
 
-Milestone 1 -
+TRAVIS CI -
 ==============================
 
 Build Status  : [![Build Status](https://travis-ci.org/airavata-courses/TeamAviato.svg?)](https://travis-ci.org/airavata-courses/TeamAviato)
