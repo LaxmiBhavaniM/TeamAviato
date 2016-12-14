@@ -103,7 +103,7 @@ exports.submitJob = (req, res) =>{
       url: urlDataIngestor,
       method: 'POST',
       headers: { 'Content-Type': 'text/plain'},
-      body: req.params.name
+      body: req.params.name + '_1'
       },
       function(error, response, body){
         if(error) {
