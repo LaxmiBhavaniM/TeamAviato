@@ -16,7 +16,7 @@ exports.getJobs = (req, res) => {
     // docs is an array
     var arr = [];
     if(docs.length <= 0){
-      res.render('jobs', { layout : 'jobs', resultData: pageData });
+      res.render('jobs', { layout : 'jobs', resultData: '{}' });
       return;
     }
     listOfJobs = listOfJobs + '"' + docs[0]['jobName'] + '"'
